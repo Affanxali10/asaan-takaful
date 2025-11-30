@@ -1,4 +1,6 @@
 import { DM_Sans, Inter } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./styles/globals.css";
 
 const dmSans = DM_Sans({
@@ -21,6 +23,18 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.variable} ${dmSans.variable} antialiased`}>
         {children}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </body>
     </html>
   );
