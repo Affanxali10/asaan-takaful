@@ -1,5 +1,5 @@
 import { DM_Sans, Inter } from "next/font/google";
-import "./globals.css";
+import "./styles/globals.css";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",

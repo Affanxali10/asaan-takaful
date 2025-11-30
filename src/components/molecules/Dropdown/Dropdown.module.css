@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.required {
+  color: var(--error);
+  margin-left: 4px;
+}
+
+.errorMessage {
+  font-family: var(--font-inter);
+  font-size: 12px;
+  color: var(--error);
+  margin-top: -2px;
+}
+
+.error {
+  /* Error styling is handled in customStyles */
+}
+

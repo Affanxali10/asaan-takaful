@@ -1,0 +1,67 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.required {
+  color: var(--error);
+  margin-left: 4px;
+}
+
+.textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--font-inter);
+  font-size: 16px;
+  color: var(--foreground);
+  background-color: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  outline: none;
+  resize: vertical;
+  transition: all 0.2s ease-in-out;
+}
+
+.textarea::placeholder {
+  color: var(--text-disabled);
+}
+
+.textarea:hover:not(:disabled) {
+  border-color: var(--border-focus);
+}
+
+.textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(0, 144, 0, 0.1);
+}
+
+.textarea:disabled {
+  background-color: var(--input-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.textarea.error {
+  border-color: var(--error);
+}
+
+.textarea.error:focus {
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+}
+
+.errorMessage {
+  font-family: var(--font-inter);
+  font-size: 12px;
+  color: var(--error);
+  margin-top: -2px;
+}
+

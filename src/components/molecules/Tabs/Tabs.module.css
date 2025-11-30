@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  gap: 8px;
+  font-family: var(--font-inter);
+}
+
+/* Button Variant */
+.button {
+  border: none;
+  background: transparent;
+}
+
+.buttonTab {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-disabled);
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.buttonTab:hover {
+  color: var(--foreground);
+}
+
+.buttonTab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  font-weight: 600;
+}
+
+/* Pill Variant */
+.pill {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px;
+  background-color: var(--input-disabled);
+}
+
+.pillTab {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground);
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  flex: 1;
+}
+
+.pillTab:hover:not(.active) {
+  background-color: rgba(0, 144, 0, 0.05);
+}
+
+.pillTab.active {
+  background-color: var(--white);
+  color: var(--primary);
+  font-weight: 600;
+  box-shadow: 0 1px 3px var(--shadow-sm);
+}
+

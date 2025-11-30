@@ -1,0 +1,134 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: var(--font-inter);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.title {
+  font-family: var(--font-dm-sans);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0 0 12px 0;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--text-disabled);
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 48px;
+  padding: 32px;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.sectionTitle {
+  font-family: var(--font-dm-sans);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 24px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.dropdownGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 800px;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modalList {
+  margin: 0;
+  padding-left: 24px;
+  color: var(--foreground);
+}
+
+.modalList li {
+  margin-bottom: 8px;
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.tabsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 600px;
+}
+
+.tabLabel {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 12px;
+}
+
+.tabInfo {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  color: var(--text-disabled);
+  margin-top: 12px;
+}
+
+.activeStatus {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: rgba(0, 255, 0, 0.1);
+  color: var(--success);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.inactiveStatus {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: rgba(255, 0, 0, 0.1);
+  color: var(--error);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
