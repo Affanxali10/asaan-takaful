@@ -1,47 +1,58 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  font-family: var(--font-inter);
+/* page wrapper */
+.page {
+  min-height: 100vh;
+  background: #fff;
+  color: #111;
+  font-family: var(--font-inter, system-ui, Arial);
 }
 
+/* reuse container for showcase below the hero */
+.container {
+  max-width: 1200px;
+  margin: 36px auto 80px;
+  padding: 20px;
+}
+
+/* header area inside showcase */
 .header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .title {
   font-family: var(--font-dm-sans);
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 700;
-  color: var(--foreground);
-  margin: 0 0 12px 0;
+  color: var(--foreground, #111);
+  margin: 0 0 8px 0;
 }
 
 .subtitle {
-  font-size: 18px;
-  color: var(--text-disabled);
+  font-size: 14px;
+  color: var(--text-disabled, #666);
   margin: 0;
 }
 
+/* sections */
 .section {
-  margin-bottom: 48px;
-  padding: 32px;
-  background-color: var(--white);
-  border: 1px solid var(--border);
+  margin-bottom: 36px;
+  padding: 24px;
+  background-color: var(--white, #fff);
+  border: 1px solid var(--border, #eee);
   border-radius: 8px;
 }
 
 .sectionTitle {
   font-family: var(--font-dm-sans);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
-  color: var(--foreground);
-  margin: 0 0 24px 0;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--border);
+  color: var(--foreground, #111);
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border, #eee);
 }
 
+/* small utility classes */
 .buttonGroup {
   display: flex;
   flex-wrap: wrap;
@@ -51,7 +62,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   max-width: 600px;
 }
 
@@ -63,25 +74,50 @@
 
 .dropdownGroup {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  max-width: 800px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  max-width: 900px;
 }
 
+.tabsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 600px;
+}
+
+/* status chips */
+.activeStatus {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: rgba(0, 220, 120, 0.08);
+  color: var(--success, #0a7f3a);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.inactiveStatus {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: rgba(220, 0, 0, 0.06);
+  color: var(--error, #c53030);
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* modal content styling used inside Modal children */
 .modalContent {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .modalList {
   margin: 0;
-  padding-left: 24px;
-  color: var(--foreground);
-}
-
-.modalList li {
-  margin-bottom: 8px;
+  padding-left: 20px;
+  color: var(--foreground, #111);
 }
 
 .modalActions {
@@ -90,45 +126,14 @@
   margin-top: 8px;
 }
 
-.tabsGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  max-width: 600px;
-}
+/* small responsive tweaks */
+@media (max-width: 700px) {
+  .container {
+    margin: 20px auto 40px;
+    padding: 16px;
+  }
 
-.tabLabel {
-  font-family: var(--font-inter);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--foreground);
-  margin-bottom: 12px;
+  .section {
+    padding: 16px;
+  }
 }
-
-.tabInfo {
-  font-family: var(--font-inter);
-  font-size: 14px;
-  color: var(--text-disabled);
-  margin-top: 12px;
-}
-
-.activeStatus {
-  display: inline-block;
-  padding: 4px 12px;
-  background-color: rgba(0, 255, 0, 0.1);
-  color: var(--success);
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.inactiveStatus {
-  display: inline-block;
-  padding: 4px 12px;
-  background-color: rgba(255, 0, 0, 0.1);
-  color: var(--error);
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-}
-

@@ -20,7 +20,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${dmSans.variable} antialiased`}>
+
+
         {children}
+        <footer></footer>
+
       </body>
     </html>
   );
