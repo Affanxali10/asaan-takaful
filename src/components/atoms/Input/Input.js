@@ -1,3 +1,6 @@
+'use client';
+
+import { useId } from 'react';
 import styles from './Input.module.css';
 
 export default function Input({
@@ -9,7 +12,9 @@ export default function Input({
   id,
   ...props
 }) {
-  const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
+  const reactId = useId();
+  const inputId = id || reactId;
+
   const inputClasses = [
     styles.input,
     error && styles.error,
@@ -25,14 +30,15 @@ export default function Input({
           {required && <span className={styles.required}>*</span>}
         </label>
       )}
+
       <input
         id={inputId}
         className={inputClasses}
         disabled={disabled}
         {...props}
       />
+
       {error && <span className={styles.errorMessage}>{error}</span>}
     </div>
   );
 }
-

@@ -22,6 +22,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${dmSans.variable} antialiased`}>
+
+
         {children}
         <ToastContainer
           position="top-right"
@@ -35,6 +37,8 @@ export default function RootLayout({ children }) {
           pauseOnHover
           theme="light"
         />
+        <footer></footer>
+
       </body>
     </html>
   );

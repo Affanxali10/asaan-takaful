@@ -1,3 +1,6 @@
+'use client';
+
+import { useId } from 'react';
 import styles from './Textarea.module.css';
 
 export default function Textarea({
@@ -10,7 +13,9 @@ export default function Textarea({
   rows = 4,
   ...props
 }) {
-  const textareaId = id || `textarea-${Math.random().toString(36).substr(2, 9)}`;
+  const reactId = useId();
+  const textareaId = id || reactId;
+
   const textareaClasses = [
     styles.textarea,
     error && styles.error,
@@ -26,6 +31,7 @@ export default function Textarea({
           {required && <span className={styles.required}>*</span>}
         </label>
       )}
+
       <textarea
         id={textareaId}
         className={textareaClasses}
@@ -33,8 +39,8 @@ export default function Textarea({
         rows={rows}
         {...props}
       />
+
       {error && <span className={styles.errorMessage}>{error}</span>}
     </div>
   );
 }
-
