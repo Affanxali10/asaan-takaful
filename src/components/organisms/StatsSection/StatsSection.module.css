@@ -1,0 +1,155 @@
+:root {
+    --brand-1: #ee3514;
+    --brand-2: #ee3514;
+    --text-dark: #333;
+    --muted: #6b6b6b;
+}
+
+.statsSection {
+    position: relative;
+    overflow: visible;
+    padding: 56px 20px;
+    background: #fff;
+}
+
+.radialOverlay {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* make overlay cover full height */
+    z-index: 5;
+    opacity: 1;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(223, 65, 37, 0.5) 0%, rgba(201, 59, 36, 0.4) 60%, rgba(255, 255, 255, 0) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0), #fff 65%);
+    transition: opacity 220ms linear;
+}
+
+
+.content {
+    max-width: 1180px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 28px;
+    align-items: center;
+    z-index: 10;
+}
+
+.left {
+    padding: 8px 6px;
+}
+
+.title {
+    margin-bottom: 16px;
+    font-size: 38px;
+    line-height: 1.05;
+    font-weight: 800;
+    color: var(--brand-2);
+}
+
+.lead {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: var(--text-dark);
+    max-width: 540px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding: 6px;
+}
+
+/* Stat Cards */
+.statCard {
+    display: flex;
+    flex-direction: column;
+}
+
+.statNumber {
+    font-size: 54px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: rgba(40, 40, 40, 0.88);
+    margin-bottom: 8px;
+    transition: transform 180ms ease;
+}
+
+.statLabel {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: 0.6px;
+}
+
+.statCard:hover .statNumber {
+    transform: translateX(6px);
+    color: var(--brand-1);
+}
+
+/* ============================= */
+/* RESPONSIVE BELOW 980px */
+/* ============================= */
+@media (max-width: 980px) {
+    .content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .right {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 28px;
+    }
+
+    .statCard {
+        width: 45%;
+        align-items: center;
+    }
+
+    .statNumber {
+        font-size: 40px;
+    }
+}
+
+/* ============================= */
+/* MOBILE 600px */
+/* ============================= */
+@media (max-width: 600px) {
+    .title {
+        font-size: 32px;
+    }
+
+    .statCard {
+        width: 100%;
+    }
+
+    .statNumber {
+        font-size: 34px;
+    }
+}
+
+/* ============================= */
+/* SMALL MOBILE 420px */
+/* ============================= */
+@media (max-width: 420px) {
+    .title {
+        font-size: 26px;
+    }
+
+    .lead {
+        font-size: 14px;
+    }
+
+    .statNumber {
+        font-size: 30px;
+    }
+}

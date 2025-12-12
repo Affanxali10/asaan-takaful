@@ -1,0 +1,187 @@
+/* Contact strip - prominent CTA (not footer-like) */
+.strip {
+    width: 100%;
+    padding: 32px 0;
+    display: flex;
+    justify-content: center;
+    /* remove footer-line look: use transparent page background + a floating card */
+    background: transparent;
+}
+
+/* floating card that sits above page content */
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+
+    /* card style */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 188, 188, 0.96));
+    border-radius: 18px;
+    padding: 20px;
+
+    /* UPDATED SHADOW (soft + premium + subtle green tint) */
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+
+    border: 1px solid rgba(3, 17, 13, 0.06);
+}
+
+
+/* Left area - icon + text */
+.left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* badge circle with decorative SVG inside */
+.badge {
+    width: 120px;
+    height: 120px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #f6bd6b 0%, #f08a4f 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(6, 41, 32, 0.06);
+    border: 3px solid rgba(255, 255, 255, 0.72);
+    flex-shrink: 0;
+}
+
+/* white droplet inside (SVG scales) */
+.badgeSvg {
+    width: 60px;
+    height: 60px;
+}
+
+/* text wrapper */
+.textWrap {
+    max-width: 760px;
+}
+
+.title {
+    margin: 0;
+    color: #0b6b50;
+    /* deep green */
+    font-size: 36px;
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+}
+
+.subtitle {
+    margin: 8px 0 0 0;
+    color: #2f2f2f;
+    opacity: 0.92;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* right area - phone CTA */
+.right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* big phone button - vivid and prominent */
+.phoneBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(90deg, #00b080 0%, #0ca37a 100%);
+    color: white;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 999px;
+    box-shadow: 0 16px 40px rgba(12, 163, 122, 0.18);
+    border: none;
+    font-weight: 800;
+    font-size: 15px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.22s ease;
+}
+
+/* phone icon container */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* phone number text */
+.phoneText {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* hover: lift + color shift (keeps UX lively) */
+.phoneBtn:hover,
+.phoneBtn:focus {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 50px rgba(2, 14, 10, 0.26);
+    background: linear-gradient(90deg, #ff4d4d 0%, #e04b47 100%);
+    /* warmer red on hover */
+    color: #fff;
+}
+
+/* small decorative label below the CTA for trust signals (optional style) */
+.trust {
+    margin-top: 6px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* responsive */
+@media (max-width: 980px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .left {
+        align-items: flex-start;
+    }
+
+    .badge {
+        width: 96px;
+        height: 96px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .phoneBtn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .badge {
+        width: 76px;
+        height: 76px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .phoneBtn {
+        font-size: 14px;
+        padding: 12px;
+    }
+}

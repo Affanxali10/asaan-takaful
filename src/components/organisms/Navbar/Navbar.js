@@ -37,11 +37,11 @@ export default function Navbar() {
                         {/* Partners Dropdown */}
                         <li className={styles.dropdown}>
                             <Link href="#" className={styles.navLink} aria-haspopup="true">Partners</Link>
-                            <ul className={styles.dropdownMenu}>
+                            {/* <ul className={styles.dropdownMenu}>
                                 <li><Link href="#" className={styles.dropdownItem}>Jazz</Link></li>
                                 <li><Link href="#" className={styles.dropdownItem}>EasyPaisa</Link></li>
                                 <li><Link href="#" className={styles.dropdownItem}>Ufone</Link></li>
-                            </ul>
+                            </ul> */}
                         </li>
 
                         {/* Single Link */}
@@ -52,13 +52,37 @@ export default function Navbar() {
                 </nav>
 
                 {/* Actions */}
+                {/* Actions */}
                 <div className={styles.actions}>
                     <button className={styles.cta}>Advisor</button>
-                    <select className={styles.lang} aria-label="Select language">
-                        <option>INT</option>
-                        <option>ENG</option>
-                    </select>
+
+                    {/* Custom Language Dropdown */}
+                    <div className={styles.langDropdown}>
+                        {/* Added tabIndex so focus-within works reliably and keyboard users can open it */}
+                        <div className={styles.trigger} tabIndex="0">
+                            <span className={styles.langLabel}>INT</span>
+                            <span className={styles.caret}>▼</span>
+                        </div>
+
+                        <ul className={styles.langMenu}>
+                            <li className={styles.langItem}>
+                                <Link href="/pak" className={styles.langLink}>
+                                    <img src="/pak.png" alt="Pakistan" className={styles.flagIcon} />
+                                    <span className={styles.langLabel}>PAK</span>
+                                </Link>
+                            </li>
+                            <li className={styles.langItem}>
+                                <Link href="/uae" className={styles.langLink}>
+                                    <img src="/uae.png" alt="UAE" className={styles.flagIcon} />
+                                    <span className={styles.langLabel}>UAE</span>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
+
+
             </div>
         </header>
     );

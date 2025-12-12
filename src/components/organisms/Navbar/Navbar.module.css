@@ -20,7 +20,7 @@
     gap: 20px;
 }
 
-/* Logo — distinctive pill + left alignment */
+/* Logo */
 .logo {
     font-weight: 800;
     color: #c93b24;
@@ -35,7 +35,7 @@
 /* NAV */
 .nav {
     flex: 1;
-    margin-left: 155px;
+    margin-left: 144px;
 }
 
 /* nav list */
@@ -46,10 +46,6 @@
     display: flex;
     gap: 20px;
     align-items: center;
-}
-
-.navList li {
-    position: relative;
 }
 
 /* main nav links */
@@ -90,27 +86,28 @@
     opacity: 1;
 }
 
-/* Dropdown menu - centered under parent (no layout jump) */
+/* Dropdown parent */
+.navList li {
+    position: relative;
+}
+
+/* Dropdown menu - ALWAYS in layout (no display:none) to avoid layout jumps */
 .dropdownMenu {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
     position: absolute;
     top: calc(100% + 10px);
-
-    /* center the dropdown under its parent */
-    left: 50%;
-    transform: translateX(-50%) translateY(6px) scale(0.98);
-    transform-origin: top center;
-
+    left: 0;
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 10px;
     box-shadow: 0 8px 30px rgba(18, 18, 18, 0.08);
-    min-width: 200px;
-    padding: 8px 6px;
+    min-width: 185px;
+    padding: 6px 6px;
     z-index: 80;
-    text-align: center;
+    transform: translateY(6px) scale(0.98);
+    transform-origin: top left;
     transition:
         opacity 220ms cubic-bezier(.2, .9, .2, 1),
         transform 220ms cubic-bezier(.2, .9, .2, 1),
@@ -118,28 +115,25 @@
     will-change: transform, opacity;
 }
 
-/* Show dropdown smoothly on hover or keyboard focus */
+/* Make dropdown visible on hover or keyboard focus within (accessibility) */
 .dropdown:hover .dropdownMenu,
 .dropdown:focus-within .dropdownMenu {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(-50%) translateY(0) scale(1);
+    transform: translateY(0) scale(1);
 }
 
 /* Dropdown items */
 .dropdownItem {
     display: block;
-    padding: 10px 14px;
+    padding: 10px 28px;
     color: #2b2b2b;
     text-decoration: none;
     font-weight: 500;
     border-radius: 8px;
     transition: background 160ms ease, transform 160ms ease;
-    margin: 6px auto;
-    /* auto left/right to center within min-width */
-    max-width: calc(100% - 16px);
-    box-sizing: border-box;
+    margin: 2px 2px;
 }
 
 /* Hover/focus states for dropdown items */
@@ -183,10 +177,119 @@
     box-shadow: 0 10px 30px rgba(217, 62, 41, 0.14);
 }
 
-/* Language select */
-.lang {
-    border: 1px solid #e6e6e6;
-    padding: 7px;
+/* ---------------------------
+   LANG / MARKET DROPDOWN
+   --------------------------- */
+
+/* container to handle hover & focus-within */
+/* LANG DROPDOWN */
+.langDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Trigger button — made relative and higher z-index to avoid hover gap */
+.trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
     border-radius: 8px;
-    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    background: #fff;
+    transition: background 140ms ease, transform 140ms ease;
+    position: relative;
+    /* important for overlap */
+    z-index: 121;
+    /* ensure it's above other things */
+    outline: none;
+}
+
+/* Hover effect on trigger (also on focus) */
+.langDropdown:hover .trigger,
+.trigger:focus,
+.trigger:active {
+    background: rgba(217, 94, 78, 0.06);
+}
+
+/* Caret rotation */
+.caret {
+    font-size: 12px;
+    color: #666;
+    margin-left: 6px;
+    transition: transform 160ms ease;
+}
+
+.langDropdown:hover .caret,
+.langDropdown:focus-within .caret {
+    transform: rotate(180deg);
+}
+
+/* Dropdown menu — placed touching the trigger to remove any gap */
+.langMenu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    /* directly under the trigger */
+    margin-top: -2px;
+    /* slight overlap so pointer never leaves active area */
+    min-width: 140px;
+    padding: 6px 0;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(4px) scale(0.995);
+    pointer-events: none;
+    transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
+    z-index: 120;
+    list-style: none;
+}
+
+/* Show menu when hovering over dropdown container or when trigger focused */
+.langDropdown:hover .langMenu,
+.langDropdown:focus-within .langMenu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Dropdown items */
+.langItem {
+    display: block;
+    /* full width clickable */
+}
+
+.langLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    /* slightly larger clickable area */
+    cursor: pointer;
+    text-decoration: none;
+    color: #222;
+    transition: background 120ms ease, transform 120ms ease;
+    border-radius: 6px;
+}
+
+.langLink:hover {
+    background: rgba(217, 94, 78, 0.08);
+    transform: translateX(3px);
+}
+
+/* Flag image inside language dropdown */
+.flagIcon {
+    width: 20px;
+    /* adjust to match navbar height */
+    height: 14px;
+    /* keep aspect ratio */
+    object-fit: cover;
+    /* ensures the image fits nicely */
+    border-radius: 2px;
+    /* slight rounding for style */
 }

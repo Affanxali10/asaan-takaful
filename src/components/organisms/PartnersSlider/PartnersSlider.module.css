@@ -1,0 +1,118 @@
+:root {
+    --gap: 70px;
+}
+
+/* SECTION */
+.partnersSection {
+    width: 100%;
+    padding: 100px 20px;
+    background: linear-gradient(180deg, rgba(238, 53, 20, 0.05), rgba(255, 255, 255, 0));
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* SLIDER */
+.slider {
+    width: 100%;
+    max-width: 1280px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 14px;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* TRACK */
+.track {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+/* ITEM */
+.item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    padding: 24px 28px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* LINK */
+.link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* LOGO */
+.logo {
+    display: block;
+    max-height: 110px;
+    width: auto;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* HOVER EFFECT */
+.item:hover {
+    transform: translateY(-8px) scale(1.1);
+    background: rgba(255, 255, 255, 1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    :root {
+        --gap: 55px;
+    }
+
+    .logo {
+        max-height: 90px;
+    }
+
+    .item {
+        min-width: 200px;
+        padding: 20px 24px;
+    }
+}
+
+@media (max-width: 680px) {
+    :root {
+        --gap: 40px;
+    }
+
+    .logo {
+        max-height: 72px;
+    }
+
+    .item {
+        min-width: 160px;
+        padding: 16px 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    :root {
+        --gap: 28px;
+    }
+
+    .logo {
+        max-height: 54px;
+    }
+
+    .item {
+        min-width: 120px;
+        padding: 12px 14px;
+    }
+}

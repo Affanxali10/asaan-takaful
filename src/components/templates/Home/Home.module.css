@@ -1,139 +1,202 @@
-/* page wrapper */
-.page {
-  min-height: 100vh;
-  background: #fff;
-  color: #111;
-  font-family: var(--font-inter, system-ui, Arial);
+/* Hero.module.css - update this file in components/organisms/Hero/ */
+
+/* Layout */
+.hero {
+  padding: 40px 0;
 }
 
-/* reuse container for showcase below the hero */
 .container {
   max-width: 1200px;
-  margin: 36px auto 80px;
-  padding: 20px;
-}
-
-/* header area inside showcase */
-.header {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.title {
-  font-family: var(--font-dm-sans);
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--foreground, #111);
-  margin: 0 0 8px 0;
-}
-
-.subtitle {
-  font-size: 14px;
-  color: var(--text-disabled, #666);
-  margin: 0;
-}
-
-/* sections */
-.section {
-  margin-bottom: 36px;
-  padding: 24px;
-  background-color: var(--white, #fff);
-  border: 1px solid var(--border, #eee);
-  border-radius: 8px;
-}
-
-.sectionTitle {
-  font-family: var(--font-dm-sans);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--foreground, #111);
-  margin: 0 0 16px 0;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border, #eee);
-}
-
-/* small utility classes */
-.buttonGroup {
+  margin: 0 auto;
   display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 0 20px;
   flex-wrap: wrap;
-  gap: 12px;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 600px;
+/* left column */
+.left {
+  flex: 1 1 420px;
+  min-width: 260px;
 }
 
-.formActions {
-  display: flex;
-  gap: 12px;
-  margin-top: 8px;
+/* SMALLER title (tagline-like) */
+.title {
+  font-size: 28px;
+  /* smaller size for the main message */
+  line-height: 1.15;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.2px;
 }
 
-.dropdownGroup {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  max-width: 900px;
-}
-
-.tabsGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  max-width: 600px;
-}
-
-/* status chips */
-.activeStatus {
-  display: inline-block;
-  padding: 4px 10px;
-  background-color: rgba(0, 220, 120, 0.08);
-  color: var(--success, #0a7f3a);
-  border-radius: 12px;
-  font-size: 12px;
+/* smaller subtitle (description) */
+.subtitle {
+  margin: 0 0 18px 0;
+  color: #666;
+  font-size: 14px;
+  /* small subtitle */
   font-weight: 500;
+  line-height: 1.45;
+  max-width: 760px;
+  opacity: 0.95;
 }
 
-.inactiveStatus {
+/* ensure span inside subtitle behaves for mobile centering */
+.subtitle>span {
   display: inline-block;
-  padding: 4px 10px;
-  background-color: rgba(220, 0, 0, 0.06);
-  color: var(--error, #c53030);
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
+  width: 100%;
+  text-align: left;
 }
 
-/* modal content styling used inside Modal children */
-.modalContent {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.modalList {
-  margin: 0;
-  padding-left: 20px;
-  color: var(--foreground, #111);
-}
-
-.modalActions {
+/* Buttons container */
+.buttons {
   display: flex;
   gap: 12px;
-  margin-top: 8px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-/* small responsive tweaks */
-@media (max-width: 700px) {
+/* Primary / Secondary styles (kept from your previous design) */
+.primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #df4125 0%, #c93b24 100%);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 8px 24px rgba(217, 62, 41, 0.10);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(217, 62, 41, 0.14);
+}
+
+.primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(223, 65, 37, 0.08);
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #0c7a0c;
+  border: 2px solid rgba(56, 189, 56, 0.12);
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(56, 189, 56, 0.05);
+}
+
+.secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(56, 189, 56, 0.06);
+}
+
+/* right column image */
+.right {
+  flex: 1 1 420px;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(15, 15, 15, 0.06);
+}
+
+/* Responsive: stack and adjust sizes */
+@media (max-width: 900px) {
   .container {
-    margin: 20px auto 40px;
-    padding: 16px;
+    flex-direction: column-reverse;
+    text-align: center;
   }
 
-  .section {
-    padding: 16px;
+  .left {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 22px;
+    /* even smaller on phones */
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    max-width: 92%;
+    text-align: center;
+    margin: 0 auto 14px;
+  }
+
+  .subtitle>span {
+    text-align: center;
+  }
+
+  .buttons {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+  }
+
+  .imageWrapper {
+    width: 86%;
+    height: 260px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 420px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .imageWrapper {
+    height: 200px;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+
+  .primary,
+  .secondary {
+    transition: none !important;
+    transform: none !important;
   }
 }

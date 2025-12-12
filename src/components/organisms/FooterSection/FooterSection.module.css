@@ -1,0 +1,269 @@
+/* FooterSection.module.css */
+
+/* global smooth scroll (kept but we use custom animated scroll too) */
+:global(html) {
+    scroll-behavior: smooth;
+}
+
+.footer {
+    background: linear-gradient(180deg, #0fa97a 0%, #0ea36b 100%);
+    color: white;
+    padding: 48px 0 22px;
+    font-family: inherit;
+    position: relative;
+    /* allow absolute positioning inside */
+}
+
+.inner {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 360px;
+    gap: 28px;
+    align-items: start;
+}
+
+/* LEFT */
+.left {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.logoWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge {
+    width: 76px;
+    height: 76px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.badgeSvg {
+    width: 42px;
+    height: 42px;
+}
+
+.brandBlock {
+    margin-left: 8px;
+}
+
+.brandName {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.brandTag {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* MIDDLE columns */
+.mid {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+}
+
+.col {
+    min-width: 160px;
+}
+
+.colTitle {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hoverLink {
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 15px;
+    opacity: 0.95;
+    transition: color 0.3s ease;
+}
+
+.hoverLink:hover {
+    color: #ffd700;
+}
+
+/* RIGHT */
+.right {
+    text-align: left;
+}
+
+.address {
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 12px 0;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.contactRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+.contactIcon {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.96);
+    transition: color 0.3s ease;
+}
+
+.contactLink {
+    color: rgba(255, 255, 255, 0.96);
+    text-decoration: none;
+    font-weight: normal;
+    /* non-bold as requested */
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+    color: #ffd700;
+}
+
+/* social icons */
+.social {
+    display: flex;
+    gap: 12px;
+    margin: 26px 0;
+}
+
+.socialLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.socialLink:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.socialIcon {
+    width: 20px;
+    height: 20px;
+    transition: color 0.3s ease;
+}
+
+.socialLink:hover .socialIcon {
+    color: #ffd700;
+}
+
+.copy {
+    margin-top: 10px;
+    font-size: 13px;
+    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+    .inner {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        text-align: left;
+    }
+
+    .mid {
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .right {
+        order: 3;
+    }
+}
+
+@media (max-width: 480px) {
+    .brandName {
+        font-size: 18px;
+    }
+
+    .colTitle {
+        font-size: 16px;
+    }
+
+    .hoverLink {
+        font-size: 14px;
+    }
+
+    .address {
+        font-size: 14px;
+    }
+
+    .socialLink {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* Hover for address and contact */
+.hoverAddress {
+    transition: color 0.3s ease;
+}
+
+.hoverAddress:hover {
+    color: #ffd700;
+}
+
+/* copy at bottom-left corner (below logo) */
+.copyLeft {
+    font-size: 13px;
+    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: normal;
+    position: absolute;
+    bottom: 8px;
+    /* pushed more downward, near the footer bottom */
+    left: 76px;
+    /* aligns starting point under the badge/logo */
+}
+
+/* ------------------------------- */
+/* Section fade-in utilities (global classes so your sections pick them up) */
+/* ------------------------------- */
+/* initial state for elements that should fade in */
+:global(.section-fade) {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 640ms cubic-bezier(.22, .98, .36, .99), transform 640ms cubic-bezier(.22, .98, .36, .99);
+    will-change: opacity, transform;
+}
+
+/* when visible */
+:global(.section-visible) {
+    opacity: 1;
+    transform: translateY(0);
+}
