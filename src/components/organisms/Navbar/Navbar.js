@@ -46,7 +46,7 @@ export default function Navbar() {
 
                         {/* Single Link */}
                         <li>
-                            <Link href="#" className={styles.navLink}>Submit Claim</Link>
+                            <Link href="/submit-claim" className={styles.navLink}>Submit Claim</Link>
                         </li>
                     </ul>
                 </nav>
@@ -54,7 +54,9 @@ export default function Navbar() {
                 {/* Actions */}
                 {/* Actions */}
                 <div className={styles.actions}>
-                    <button className={styles.cta}>Advisor</button>
+                    <Link href="/advisor" className={styles.cta}>
+                        Advisor
+                    </Link>
 
                     {/* Custom Language Dropdown */}
                     <div className={styles.langDropdown}>
@@ -66,7 +68,7 @@ export default function Navbar() {
 
                         <ul className={styles.langMenu}>
                             <li className={styles.langItem}>
-                                <Link href="/pak" className={styles.langLink}>
+                                <Link href="/" className={styles.langLink}>
                                     <img src="/pak.png" alt="Pakistan" className={styles.flagIcon} />
                                     <span className={styles.langLabel}>PAK</span>
                                 </Link>

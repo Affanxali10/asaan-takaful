@@ -284,12 +284,26 @@
 
 /* Flag image inside language dropdown */
 .flagIcon {
-    width: 20px;
-    /* adjust to match navbar height */
-    height: 14px;
-    /* keep aspect ratio */
-    object-fit: cover;
-    /* ensures the image fits nicely */
+    width: 26px;
+    /* bigger & clearer */
+    height: auto;
+    /* prevent compression */
+    aspect-ratio: 3 / 2;
+    /* correct flag ratio */
+    object-fit: contain;
+    /* no stretching */
     border-radius: 2px;
-    /* slight rounding for style */
+    /* slight premium touch */
+    display: block;
+}
+
+.langItem:hover .flagIcon {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+
+.langItem:hover .flagIcon {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
 }

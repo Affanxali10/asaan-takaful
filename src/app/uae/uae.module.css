@@ -1,0 +1,49 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fb;
+}
+
+.content {
+    text-align: center;
+}
+
+/* Row for logos */
+.logoRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+/* AsaanTakaful logo */
+.mainLogo {
+    height: 150px;
+    /* increased */
+    width: auto;
+}
+
+/* 🚨 IMPORTANT: UAE FLAG FIX */
+.uaeFlag {
+    width: 180px;
+    /* much wider */
+    height: 110px;
+    /* balanced height */
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Text */
+.heading {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subText {
+    font-size: 16px;
+    color: #555;
+}
