@@ -1,109 +1,149 @@
 'use client';
 
 import styles from './AdvisorForm.module.css';
-import Input from '@/components/atoms/Input';
-import Textarea from '@/components/atoms/Textarea';
-import Button from '@/components/atoms/Button';
 
-export default function SubmitClaimPage() {
+export default function AdvisorPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
-        // backend will handle later
+        // Backend integration later
     };
 
     return (
         <div className={styles.wrapper}>
-            <h1 className={styles.title}>Insurance Claim – Short Form</h1>
+            <h1 className={styles.title}>Insurance Advisor Application</h1>
             <p className={styles.subtitle}>
-                Please fill the details below to submit your claim
+                Please fill the form below to apply as an Asaan Takaful Advisor
             </p>
 
             <form className={styles.form} onSubmit={handleSubmit}>
 
-                {/* Policyholder Info */}
-                <Input
-                    label="Policyholder Name"
-                    type="text"
-                    name="name"
-                    autoComplete="name"
-                    placeholder="Enter full name"
-                />
+                <div className={styles.field}>
+                    <label htmlFor="name">Applicant Name</label>
+                    <input
+                        id="name"
+                        type="text"
+                        name="name"
+                        autoComplete="name"
+                        placeholder="Enter full name"
+                        required
+                    />
+                </div>
 
-                <Input
-                    label="Policy Number"
-                    type="text"
-                    name="policy-number"
-                    autoComplete="off"
-                    placeholder="Enter policy number"
-                />
+                <div className={styles.field}>
+                    <label htmlFor="fatherName">Father’s Name</label>
+                    <input
+                        id="fatherName"
+                        type="text"
+                        name="fatherName"
+                        placeholder="Enter father name"
+                        required
+                    />
+                </div>
 
-                <Input
-                    label="Contact No"
-                    type="tel"
-                    name="phone"
-                    autoComplete="tel"
-                    placeholder="+92 3XX XXXXXXX"
-                />
+                <div className={styles.field}>
+                    <label htmlFor="cnic">CNIC Number</label>
+                    <input
+                        id="cnic"
+                        type="text"
+                        name="cnic"
+                        placeholder="00000-0000000-0"
+                        required
+                    />
+                </div>
 
-                <Input
-                    label="Email Address"
-                    type="email"
-                    name="email"
-                    autoComplete="email"
-                    placeholder="example@email.com"
-                />
+                <div className={styles.field}>
+                    <label htmlFor="phone">Mobile Number</label>
+                    <input
+                        id="phone"
+                        type="tel"
+                        name="phone"
+                        autoComplete="tel"
+                        placeholder="+92 3XX XXXXXXX"
+                        required
+                    />
+                </div>
 
-                <Input
-                    label="Date of Incident"
-                    type="date"
-                    name="incident-date"
-                    autoComplete="off"
-                />
+                <div className={styles.field}>
+                    <label htmlFor="email">Email Address</label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        autoComplete="email"
+                        placeholder="example@email.com"
+                        required
+                    />
+                </div>
 
-                <Textarea
-                    label="Place of Incident"
-                    name="incident-place"
-                    autoComplete="off"
-                    placeholder="Enter location of incident"
-                />
+                <div className={styles.field}>
+                    <label htmlFor="address">Current Address</label>
+                    <textarea
+                        id="address"
+                        name="address"
+                        rows="3"
+                        placeholder="Enter complete address"
+                        required
+                    />
+                </div>
 
-                <Textarea
-                    label="Brief Description of Loss"
-                    name="description"
-                    autoComplete="off"
-                    placeholder="Describe the incident briefly"
-                />
+                <div className={styles.field}>
+                    <label htmlFor="education">Education Level</label>
+                    <input
+                        id="education"
+                        type="text"
+                        name="education"
+                        placeholder="Bachelor’s / Master’s"
+                        required
+                    />
+                </div>
 
-                <Input
-                    label="Estimated Loss (PKR)"
-                    type="number"
-                    name="estimated-loss"
-                    autoComplete="off"
-                    placeholder="Enter estimated amount"
-                />
+                <div className={styles.field}>
+                    <label htmlFor="occupation">Current Occupation</label>
+                    <input
+                        id="occupation"
+                        type="text"
+                        name="occupation"
+                        placeholder="Your current occupation"
+                        required
+                    />
+                </div>
 
-                {/* Documents */}
+                <div className={styles.field}>
+                    <label htmlFor="experience">
+                        Experience in Sales / Insurance (if any)
+                    </label>
+                    <textarea
+                        id="experience"
+                        name="experience"
+                        rows="3"
+                        placeholder="Mention experience briefly"
+                    />
+                </div>
+
                 <div className={styles.uploadSection}>
                     <label>Documents Attached</label>
 
-                    <label className={styles.checkbox}>
-                        <input type="checkbox" name="cnic" /> CNIC Copy
-                    </label>
+                    <div className={styles.fileField}>
+                        <span>CNIC Copy <small>(Required)</small></span>
+                        <input type="file" accept=".jpg,.jpeg,.png,.pdf" required />
+                    </div>
 
-                    <label className={styles.checkbox}>
-                        <input type="checkbox" name="policy-copy" /> Policy Copy
-                    </label>
+                    <div className={styles.fileField}>
+                        <span>Passport Size Photo <small>(Required)</small></span>
+                        <input type="file" accept=".jpg,.jpeg,.png" required />
+                    </div>
 
-                    <label className={styles.checkbox}>
-                        <input type="checkbox" name="photos" /> Photos
-                    </label>
-
-                    <label className={styles.checkbox}>
-                        <input type="checkbox" name="fir" /> FIR (if any)
-                    </label>
+                    <div className={styles.fileField}>
+                        <span>Resume / CV <small>(Optional)</small></span>
+                        <input type="file" accept=".pdf,.doc,.docx" />
+                    </div>
                 </div>
 
-                <Button type="submit">Submit Claim</Button>
+
+                <button type="submit" className={styles.submitBtn}>
+                    Submit Application
+                </button>
+
             </form>
         </div>
     );

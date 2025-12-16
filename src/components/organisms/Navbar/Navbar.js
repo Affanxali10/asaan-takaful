@@ -18,7 +18,12 @@ export default function Navbar() {
                             <Link href="#" className={styles.navLink} aria-haspopup="true">Company</Link>
                             <ul className={styles.dropdownMenu}>
                                 <li><Link href="#" className={styles.dropdownItem}>What we do</Link></li>
-                                <li><Link href="#" className={styles.dropdownItem}>Careers</Link></li>
+                                <li>
+                                    <Link href="/career" className={styles.dropdownItem}>
+                                        Careers
+                                    </Link>
+                                </li>
+
                                 <li><Link href="#" className={styles.dropdownItem}>Our Leaders</Link></li>
                                 <li><Link href="#" className={styles.dropdownItem}>Partners</Link></li>
                             </ul>
