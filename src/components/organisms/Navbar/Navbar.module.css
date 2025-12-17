@@ -116,13 +116,24 @@
 }
 
 /* Make dropdown visible on hover or keyboard focus within (accessibility) */
-.dropdown:hover .dropdownMenu,
+/* Enable hover dropdowns ONLY on devices that support hover (desktop) */
+@media (hover: hover) and (pointer: fine) {
+    .dropdown:hover .dropdownMenu {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Keep keyboard accessibility */
 .dropdown:focus-within .dropdownMenu {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0) scale(1);
 }
+
 
 /* Dropdown items */
 .dropdownItem {

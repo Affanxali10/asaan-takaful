@@ -2,35 +2,25 @@
     max-width: 720px;
     margin: 64px auto;
     padding: 44px 36px;
-
     background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
     border-radius: 18px;
     border-top: 6px solid #16a34a;
-
-    box-shadow:
-        0 25px 60px rgba(15, 23, 42, 0.12),
-        0 10px 25px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
 }
 
-/* ---------------- Titles ---------------- */
-
 .title {
-    font-family: 'Inter', system-ui, sans-serif;
     text-align: center;
     font-size: 30px;
     font-weight: 700;
     color: #0f172a;
-    margin-bottom: 6px;
 }
 
 .subtitle {
-    font-size: 15px;
     text-align: center;
+    font-size: 15px;
     color: #64748b;
     margin-bottom: 36px;
 }
-
-/* ---------------- Form ---------------- */
 
 .form {
     display: flex;
@@ -38,135 +28,109 @@
     gap: 22px;
 }
 
-/* IMPORTANT: style Input atom inputs */
+.field label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
 .form input,
 .form textarea {
+    width: 100%;
     padding: 14px 16px;
     border-radius: 12px;
-    background: #fcfcfc;
     border: 1.5px solid #d1d5db;
-
-    font-size: 14px;
-    color: #0f172a;
-
     transition: all 0.3s ease;
-    width: 100%;
-    box-sizing: border-box;
 }
 
-/* Placeholder */
-.form input::placeholder,
-.form textarea::placeholder {
-    color: #94a3b8;
-}
-
-/* Hover */
 .form input:hover,
 .form textarea:hover {
     border-color: #15803d;
-    background: linear-gradient(90deg, #ffffff 0%, #f8fafc 100%);
     box-shadow: 0 6px 15px rgba(22, 163, 74, 0.1);
-    transform: translateY(-1px);
 }
 
-/* Focus */
 .form input:focus,
 .form textarea:focus {
     outline: none;
     border-color: #16a34a;
-    background: #ffffff;
     box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
-    transform: scale(1.02);
 }
-
-/* Textarea */
-.form textarea {
-    resize: vertical;
-    min-height: 90px;
-}
-
-/* ---------------- Upload Section ---------------- */
 
 .uploadSection {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-}
-
-.uploadSection label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #1e293b;
-}
-
-.uploadSection input[type="file"] {
-    padding: 12px;
-    border-radius: 10px;
-    border: 1.5px dashed #cbd5e1;
-    background: #f8fafc;
-    cursor: pointer;
-}
-
-/* ---------------- Mobile ---------------- */
-
-@media (max-width: 640px) {
-    .wrapper {
-        margin: 32px 16px;
-        padding: 28px 22px;
-    }
-
-    .title {
-        font-size: 24px;
-    }
-}
-
-/* ---------------- Submit Button ---------------- */
-
-.submitBtn {
-    margin-top: 26px;
-    width: 100%;
-
-    background: linear-gradient(135deg, #16a34a, #15803d);
-    color: #ffffff;
-
-    border: none;
-    padding: 15px;
-
-    border-radius: 14px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Hover */
-.submitBtn:hover {
-    background: linear-gradient(135deg, #15803d, #16a34a);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 18px 32px rgba(22, 163, 74, 0.35);
-}
-
-/* Active */
-.submitBtn:active {
-    transform: translateY(0) scale(0.98);
-}
-
-.fileField {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    gap: 14px;
 }
 
 .fileField span {
     font-size: 14px;
     font-weight: 500;
-    color: #334155;
 }
 
 .fileField small {
-    font-size: 12px;
-    font-weight: 400;
     color: #64748b;
+}
+
+.fileField input[type="file"] {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1.5px dashed #cbd5e1;
+    background: #f8fafc;
+}
+
+.filePreview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1.5px solid #16a34a;
+    background: #ffffff;
+}
+
+.filePreview img {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.fileIcon {
+    font-size: 28px;
+}
+
+.filePreview p {
+    flex: 1;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filePreview button {
+    background: #ef4444;
+    color: white;
+    border: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.submitBtn {
+    margin-top: 26px;
+    padding: 15px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 32px rgba(22, 163, 74, 0.35);
 }

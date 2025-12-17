@@ -17,6 +17,14 @@ export default function CareerPage() {
     const [positionOpen, setPositionOpen] = useState(false);
     const [city, setCity] = useState("");
     const [position, setPosition] = useState("");
+    const [cv, setCv] = useState(null);
+
+    const handleCvChange = (e) => {
+        const file = e.target.files[0];
+        if (file) setCv(file);
+    };
+
+    const removeCv = () => setCv(null);
 
     return (
         <section className={styles.page}>
@@ -45,7 +53,7 @@ export default function CareerPage() {
                         <input type="tel" placeholder="Phone Number*" required />
                     </div>
 
-                    {/* City Dropdown */}
+                    {/* City */}
                     <div
                         className={styles.dropdown}
                         onClick={() => setCityOpen(!cityOpen)}
@@ -75,7 +83,7 @@ export default function CareerPage() {
                         )}
                     </div>
 
-                    {/* Position Dropdown */}
+                    {/* Position */}
                     <div
                         className={styles.dropdown}
                         onClick={() => setPositionOpen(!positionOpen)}
@@ -85,8 +93,7 @@ export default function CareerPage() {
                             {position || "Select Position*"}
                         </span>
                         <FaChevronDown
-                            className={`${styles.arrow} ${positionOpen ? styles.rotate : ""
-                                }`}
+                            className={`${styles.arrow} ${positionOpen ? styles.rotate : ""}`}
                         />
 
                         {positionOpen && (
@@ -109,11 +116,23 @@ export default function CareerPage() {
                     </div>
 
                     {/* CV Upload */}
-                    <label className={styles.upload}>
-                        <FaCloudUploadAlt />
-                        <span>Upload CV</span>
-                        <input type="file" />
-                    </label>
+                    {!cv ? (
+                        <label className={styles.upload}>
+                            <FaCloudUploadAlt />
+                            <span>Upload CV</span>
+                            <input
+                                type="file"
+                                accept=".pdf,.doc,.docx"
+                                onChange={handleCvChange}
+                            />
+                        </label>
+                    ) : (
+                        <div className={styles.filePreview}>
+                            <span className={styles.fileIcon}>📄</span>
+                            <p title={cv.name}>{cv.name}</p>
+                            <button type="button" onClick={removeCv}>✕</button>
+                        </div>
+                    )}
 
                     <button className={styles.button}>Apply Now</button>
                 </form>

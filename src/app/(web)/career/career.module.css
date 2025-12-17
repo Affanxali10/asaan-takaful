@@ -134,7 +134,6 @@
     padding: 14px 18px;
     font-size: 14px;
     cursor: pointer;
-    transition: background 0.2s ease;
 }
 
 .dropdownMenu li:hover {
@@ -159,6 +158,40 @@
 
 .upload input {
     display: none;
+}
+
+/* Upload Preview */
+.filePreview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 14px;
+    border: 1.5px solid #0f766e;
+    background: #ffffff;
+}
+
+.fileIcon {
+    font-size: 26px;
+}
+
+.filePreview p {
+    flex: 1;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #111827;
+}
+
+.filePreview button {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: none;
+    background: #ef4444;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 /* Button */

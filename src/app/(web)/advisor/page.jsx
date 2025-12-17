@@ -1,11 +1,29 @@
 'use client';
 
+import { useState } from 'react';
 import styles from './AdvisorForm.module.css';
 
 export default function AdvisorPage() {
+    const [files, setFiles] = useState({
+        cnic: null,
+        photo: null,
+        resume: null,
+    });
+
+    const handleFileChange = (e, key) => {
+        const file = e.target.files[0];
+        if (file) {
+            setFiles(prev => ({ ...prev, [key]: file }));
+        }
+    };
+
+    const removeFile = (key) => {
+        setFiles(prev => ({ ...prev, [key]: null }));
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Backend integration later
+        // backend integration later
     };
 
     return (
@@ -18,132 +36,121 @@ export default function AdvisorPage() {
             <form className={styles.form} onSubmit={handleSubmit}>
 
                 <div className={styles.field}>
-                    <label htmlFor="name">Applicant Name</label>
-                    <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        autoComplete="name"
-                        placeholder="Enter full name"
-                        required
-                    />
+                    <label>Applicant Name</label>
+                    <input type="text" placeholder="Enter full name" required />
                 </div>
 
                 <div className={styles.field}>
-                    <label htmlFor="fatherName">Father’s Name</label>
-                    <input
-                        id="fatherName"
-                        type="text"
-                        name="fatherName"
-                        placeholder="Enter father name"
-                        required
-                    />
+                    <label>Father’s Name</label>
+                    <input type="text" placeholder="Enter father name" required />
                 </div>
 
                 <div className={styles.field}>
-                    <label htmlFor="cnic">CNIC Number</label>
-                    <input
-                        id="cnic"
-                        type="text"
-                        name="cnic"
-                        placeholder="00000-0000000-0"
-                        required
-                    />
+                    <label>CNIC Number</label>
+                    <input type="text" placeholder="00000-0000000-0" required />
                 </div>
 
                 <div className={styles.field}>
-                    <label htmlFor="phone">Mobile Number</label>
-                    <input
-                        id="phone"
-                        type="tel"
-                        name="phone"
-                        autoComplete="tel"
-                        placeholder="+92 3XX XXXXXXX"
-                        required
-                    />
+                    <label>Mobile Number</label>
+                    <input type="tel" placeholder="+92 3XX XXXXXXX" required />
                 </div>
 
                 <div className={styles.field}>
-                    <label htmlFor="email">Email Address</label>
-                    <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        autoComplete="email"
-                        placeholder="example@email.com"
-                        required
-                    />
+                    <label>Email Address</label>
+                    <input type="email" placeholder="example@email.com" required />
                 </div>
 
                 <div className={styles.field}>
-                    <label htmlFor="address">Current Address</label>
-                    <textarea
-                        id="address"
-                        name="address"
-                        rows="3"
-                        placeholder="Enter complete address"
-                        required
-                    />
+                    <label>Current Address</label>
+                    <textarea placeholder="Enter complete address" required />
                 </div>
 
                 <div className={styles.field}>
-                    <label htmlFor="education">Education Level</label>
-                    <input
-                        id="education"
-                        type="text"
-                        name="education"
-                        placeholder="Bachelor’s / Master’s"
-                        required
-                    />
+                    <label>Education Level</label>
+                    <input type="text" placeholder="Bachelor’s / Master’s" required />
                 </div>
 
                 <div className={styles.field}>
-                    <label htmlFor="occupation">Current Occupation</label>
-                    <input
-                        id="occupation"
-                        type="text"
-                        name="occupation"
-                        placeholder="Your current occupation"
-                        required
-                    />
+                    <label>Current Occupation</label>
+                    <input type="text" placeholder="Your current occupation" required />
                 </div>
 
                 <div className={styles.field}>
-                    <label htmlFor="experience">
-                        Experience in Sales / Insurance (if any)
-                    </label>
-                    <textarea
-                        id="experience"
-                        name="experience"
-                        rows="3"
-                        placeholder="Mention experience briefly"
-                    />
+                    <label>Experience in Sales / Insurance (if any)</label>
+                    <textarea placeholder="Mention experience briefly" />
                 </div>
 
+                {/* Upload Section */}
                 <div className={styles.uploadSection}>
                     <label>Documents Attached</label>
 
+                    {/* CNIC */}
                     <div className={styles.fileField}>
                         <span>CNIC Copy <small>(Required)</small></span>
-                        <input type="file" accept=".jpg,.jpeg,.png,.pdf" required />
+
+                        {!files.cnic ? (
+                            <input
+                                type="file"
+                                accept=".jpg,.jpeg,.png,.pdf"
+                                onChange={(e) => handleFileChange(e, 'cnic')}
+                                required
+                            />
+                        ) : (
+                            <div className={styles.filePreview}>
+                                {files.cnic.type.startsWith('image/') ? (
+                                    <img src={URL.createObjectURL(files.cnic)} alt="CNIC" />
+                                ) : (
+                                    <span className={styles.fileIcon}>📄</span>
+                                )}
+                                <p title={files.cnic.name}>{files.cnic.name}</p>
+                                <button type="button" onClick={() => removeFile('cnic')}>✕</button>
+                            </div>
+                        )}
                     </div>
 
+                    {/* Photo */}
                     <div className={styles.fileField}>
                         <span>Passport Size Photo <small>(Required)</small></span>
-                        <input type="file" accept=".jpg,.jpeg,.png" required />
+
+                        {!files.photo ? (
+                            <input
+                                type="file"
+                                accept=".jpg,.jpeg,.png"
+                                onChange={(e) => handleFileChange(e, 'photo')}
+                                required
+                            />
+                        ) : (
+                            <div className={styles.filePreview}>
+                                <img src={URL.createObjectURL(files.photo)} alt="Photo" />
+                                <p title={files.photo.name}>{files.photo.name}</p>
+                                <button type="button" onClick={() => removeFile('photo')}>✕</button>
+                            </div>
+                        )}
                     </div>
 
+                    {/* Resume */}
                     <div className={styles.fileField}>
                         <span>Resume / CV <small>(Optional)</small></span>
-                        <input type="file" accept=".pdf,.doc,.docx" />
+
+                        {!files.resume ? (
+                            <input
+                                type="file"
+                                accept=".pdf,.doc,.docx"
+                                onChange={(e) => handleFileChange(e, 'resume')}
+                            />
+                        ) : (
+                            <div className={styles.filePreview}>
+                                <span className={styles.fileIcon}>📄</span>
+                                <p title={files.resume.name}>{files.resume.name}</p>
+                                <button type="button" onClick={() => removeFile('resume')}>✕</button>
+                            </div>
+                        )}
                     </div>
                 </div>
-
 
                 <button type="submit" className={styles.submitBtn}>
                     Submit Application
                 </button>
-
             </form>
         </div>
     );
