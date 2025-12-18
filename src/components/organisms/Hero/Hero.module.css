@@ -26,13 +26,22 @@
 
 /* MAIN TAGLINE (Urdu line) */
 .tagline {
-    font-size: 16px;
-    /* Bigger tagline */
+    font-size: 18px;
     font-weight: 600;
     margin: 0 0 26px 0;
     color: #222;
-    line-height: 1.2;
+    line-height: 1.8;
+    direction: rtl;
+    text-align: center;
 }
+
+@media (max-width: 900px) {
+    .tagline {
+        font-size: 20px;
+        line-height: 1.9;
+    }
+}
+
 
 /* Single big button container */
 .singleButtonWrapper {
@@ -76,6 +85,16 @@
 }
 
 @media (max-width: 900px) {
+
+    .imageWrapper {
+        width: 90%;
+        height: 340px;
+    }
+
+}
+
+
+@media (max-width: 900px) {
     .container {
         flex-direction: column-reverse;
         text-align: center;
@@ -85,17 +104,33 @@
         font-size: 40px;
     }
 
+    @media (max-width: 900px) {
+        .title {
+            line-height: 1.15;
+        }
+    }
+
+
     .tagline {
         font-size: 22px;
         /* Smaller on mobile */
     }
 
     .bigButton {
+        max-width: 260px;
         width: 100%;
     }
+
 
     .imageWrapper {
         width: 80%;
         height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 16px;
+        padding-bottom: 24px;
     }
 }
