@@ -10,7 +10,7 @@ export default function Hero({
 }) {
     return (
         <section className={styles.hero}>
-            <div className={styles.container}>
+            <div className={styles.heroContainer}>
                 <div className={styles.left}>
                     <h1 className={styles.title}>{title}</h1>
 
