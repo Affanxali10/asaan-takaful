@@ -1,130 +1,81 @@
 .hero {
-    padding: 24px 0;
+    padding: 40px 0;
 }
 
-@media (max-width: 768px) {
-    .hero {
-        padding-top: 12px;
-        padding-bottom: 20px;
-    }
-}
-
-
+/* MAIN CONTAINER */
 .heroContainer {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    gap: 24px;
-    align-items: center;
     padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
 }
 
+/* LEFT CONTENT */
 .left {
     flex: 1;
-    min-width: 300px;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
 }
 
+/* TITLE */
 .title {
-    font-size: 55px;
-    line-height: 0.95;
-    margin: 0 0 24px 0;
+    font-size: 52px;
     font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
 }
 
-@media (max-width: 900px) {
-    .title {
-        font-size: 34px;
-        line-height: 1.2;
-    }
-}
-
-
-/* MAIN TAGLINE (Urdu line) */
+/* SUBTITLE */
 .tagline {
     font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 22px 0;
+    line-height: 1.8;
+    max-width: 520px;
     color: #222;
-    line-height: 1.9;
-    direction: rtl;
-    unicode-bidi: plaintext;
-    text-align: center;
+    margin: 0;
 }
 
-@media (max-width: 900px) {
-    .tagline {
-        font-size: 19px;
-        line-height: 2;
-    }
-}
-
-
-@media (max-width: 900px) {
-    .tagline {
-        font-size: 20px;
-        line-height: 1.9;
-    }
-}
-
-
-/* Single big button container */
-.singleButtonWrapper {
-    margin-top: 10px;
-}
-
-/* Big button with animation */
+/* CTA BUTTON */
 .bigButton {
+    margin-top: 8px;
     width: 100%;
     max-width: 280px;
-    padding: 14px 20px;
+
+    padding: 14px 22px;
     border-radius: 14px;
     border: none;
 
     background: linear-gradient(135deg, #df4125, #f15a3c);
-    color: #fff;
+    color: white;
 
     font-size: 18px;
     font-weight: 700;
-    letter-spacing: 0.3px;
-
     cursor: pointer;
-    text-align: center;
 
     box-shadow: 0 8px 20px rgba(223, 65, 37, 0.25);
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Hover (desktop only) */
 @media (hover: hover) {
     .bigButton:hover {
         transform: translateY(-3px);
         box-shadow: 0 14px 32px rgba(223, 65, 37, 0.35);
-        background: linear-gradient(135deg, #f15a3c, #df4125);
     }
 }
 
-/* Mobile touch feedback */
-.bigButton:active {
-    transform: scale(0.98);
-}
-
-
-.bigButton:hover {
-    transform: translateY(-3px) scale(1.04);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(90deg, #ff5a3c, #df4125);
-}
-
+/* RIGHT IMAGE */
 .right {
     flex: 1;
-    min-height: 360px;
-    width: 100%;
+    display: flex;
+    justify-content: center;
 }
-
 
 .imageWrapper {
     position: relative;
@@ -132,60 +83,36 @@
     height: 420px;
 }
 
-@media (max-width: 900px) {
+/* ---------------- MOBILE FIX ---------------- */
 
-    .imageWrapper {
-        width: 90%;
-        height: 340px;
+@media (max-width: 768px) {
+
+    .hero {
+        padding: 24px 0;
     }
 
-}
-
-
-@media (max-width: 900px) {
-    .container {
-        flex-direction: column-reverse;
+    .heroContainer {
+        flex-direction: column;
+        gap: 32px;
         text-align: center;
     }
 
     .title {
-        font-size: 40px;
+        font-size: 36px;
+        line-height: 1.2;
     }
-
-    @media (max-width: 900px) {
-        .title {
-            line-height: 1.15;
-        }
-
-        @media (max-width: 900px) {
-            .right {
-                min-height: 300px;
-            }
-        }
-
-    }
-
 
     .tagline {
-        font-size: 22px;
-        /* Smaller on mobile */
+        font-size: 17px;
+        line-height: 1.9;
     }
 
     .bigButton {
         max-width: 260px;
-        width: 100%;
     }
-
 
     .imageWrapper {
-        width: 80%;
+        width: 90%;
         height: 300px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        padding-top: 16px;
-        padding-bottom: 24px;
     }
 }
