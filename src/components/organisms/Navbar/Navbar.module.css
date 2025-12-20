@@ -26,6 +26,38 @@
     }
 }
 
+/* =========================
+   MOBILE HEADER FLEX LAYOUT
+========================= */
+.mobileHeader {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.actionsMobile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Show mobile header only on mobile */
+@media (max-width: 768px) {
+    .mobileHeader {
+        display: flex;
+    }
+
+    .logo {
+        text-align: center;
+        flex: 1;
+    }
+
+    .actionsMobile {
+        gap: 8px;
+    }
+}
+
 .header {
     position: sticky;
     top: 0;
@@ -140,6 +172,7 @@
     position: relative;
 }
 
+/* Smooth dropdown animation */
 .dropdownMenu {
     position: absolute;
     top: calc(100% + 10px);
@@ -157,8 +190,10 @@
     opacity: 0;
     pointer-events: none;
 
-    transform: translateY(6px) scale(0.98);
-    transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
+    transform: translateY(-10px) scale(0.95);
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 300ms;
     z-index: 80;
 }
 
@@ -180,7 +215,7 @@
     transform: translateY(0) scale(1);
 }
 
-/* ✅ MOBILE TAP FIX */
+/* Mobile tap (smooth) */
 @media (hover: none) and (pointer: coarse) {
 
     .dropdown>button:focus+.dropdownMenu,
@@ -203,14 +238,14 @@
     color: #2b2b2b;
 
     border-radius: 8px;
-    transition: background 160ms ease, transform 160ms ease;
+    transition: background 200ms ease, transform 200ms ease, color 200ms ease;
 }
 
 .dropdownItem:hover,
 .dropdownItem:focus {
     background: rgba(223, 65, 37, 0.06);
     color: #c93b24;
-    transform: translateX(4px);
+    transform: translateX(6px);
 }
 
 /* =========================

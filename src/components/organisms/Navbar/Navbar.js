@@ -13,12 +13,54 @@ export default function Navbar() {
             <header className={styles.header}>
                 <div className={styles.inner}>
 
-                    {/* Logo */}
-                    <Link href="/" className={styles.logo}>
-                        AsaanTakaful
-                    </Link>
+                    {/* ===================== MOBILE HEADER ===================== */}
+                    <div className={styles.mobileHeader}>
+                        {/* Left: Hamburger */}
+                        <button
+                            className={styles.hamburger}
+                            onClick={() => setMobileOpen(true)}
+                            aria-label="Open menu"
+                        >
+                            ☰
+                        </button>
 
-                    {/* Navigation */}
+                        {/* Center: Logo */}
+                        <Link href="/" className={styles.logo}>
+                            AsaanTakaful
+                        </Link>
+
+                        {/* Right: Advisor + INT */}
+                        <div className={styles.actionsMobile}>
+                            <Link href="/advisor" className={styles.cta}>
+                                Advisor
+                            </Link>
+
+                            <div className={styles.langDropdown}>
+                                <div className={styles.trigger} tabIndex={0}>
+                                    <span className={styles.langLabel}>INT</span>
+                                    <span className={styles.caret}>▼</span>
+                                </div>
+
+                                <ul className={styles.langMenu}>
+                                    <li className={styles.langItem}>
+                                        <Link href="/" className={styles.langLink}>
+                                            <img src="/pak.png" alt="Pakistan" className={styles.flagIcon} />
+                                            <span>PAK</span>
+                                        </Link>
+                                    </li>
+                                    <li className={styles.langItem}>
+                                        <Link href="/uae" className={styles.langLink}>
+                                            <img src="/uae.png" alt="UAE" className={styles.flagIcon} />
+                                            <span>UAE</span>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {/* ===================== END MOBILE HEADER ===================== */}
+
+                    {/* ===================== DESKTOP NAVIGATION ===================== */}
                     <nav className={styles.nav} aria-label="Main navigation">
                         <ul className={styles.navList}>
 
@@ -71,14 +113,12 @@ export default function Navbar() {
                         </ul>
                     </nav>
 
-                    {/* Actions */}
+                    {/* Desktop Actions */}
                     <div className={styles.actions}>
-
                         <Link href="/advisor" className={styles.cta}>
                             Advisor
                         </Link>
 
-                        {/* Language Dropdown */}
                         <div className={styles.langDropdown}>
                             <div className={styles.trigger} tabIndex={0}>
                                 <span className={styles.langLabel}>INT</span>
@@ -100,17 +140,8 @@ export default function Navbar() {
                                 </li>
                             </ul>
                         </div>
-
-                        {/* ✅ MOBILE HAMBURGER */}
-                        <button
-                            className={styles.hamburger}
-                            onClick={() => setMobileOpen(true)}
-                            aria-label="Open menu"
-                        >
-                            ☰
-                        </button>
-
                     </div>
+
                 </div>
             </header>
 
