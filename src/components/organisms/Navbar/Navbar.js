@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
-import MobileMenu from '../MobileMenu/MobileMenu'; // ✅ ADD
+import MobileMenu from '../MobileMenu/MobileMenu';
 
 export default function Navbar() {
-    const [mobileOpen, setMobileOpen] = useState(false); // ✅ ADD
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     return (
         <>
@@ -63,17 +63,10 @@ export default function Navbar() {
                     {/* ===================== DESKTOP NAVIGATION ===================== */}
                     <nav className={styles.nav} aria-label="Main navigation">
                         <ul className={styles.navList}>
-
-                            {/* Company Dropdown */}
                             <li className={styles.dropdown}>
-                                <button
-                                    type="button"
-                                    className={styles.navLink}
-                                    aria-haspopup="true"
-                                >
+                                <button type="button" className={styles.navLink} aria-haspopup="true">
                                     Company
                                 </button>
-
                                 <ul className={styles.dropdownMenu}>
                                     <li><Link href="#" className={styles.dropdownItem}>What we do</Link></li>
                                     <li><Link href="/career" className={styles.dropdownItem}>Careers</Link></li>
@@ -82,16 +75,10 @@ export default function Navbar() {
                                 </ul>
                             </li>
 
-                            {/* Products Dropdown */}
                             <li className={styles.dropdown}>
-                                <button
-                                    type="button"
-                                    className={styles.navLink}
-                                    aria-haspopup="true"
-                                >
+                                <button type="button" className={styles.navLink} aria-haspopup="true">
                                     Products
                                 </button>
-
                                 <ul className={styles.dropdownMenu}>
                                     <li><Link href="#" className={styles.dropdownItem}>Motor Takaful</Link></li>
                                     <li><Link href="#" className={styles.dropdownItem}>Health Takaful</Link></li>
@@ -99,25 +86,14 @@ export default function Navbar() {
                                 </ul>
                             </li>
 
-                            <li>
-                                <Link href="#" className={styles.navLink}>
-                                    Partners
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/submit-claim" className={styles.navLink}>
-                                    Submit Claim
-                                </Link>
-                            </li>
+                            <li><Link href="#" className={styles.navLink}>Partners</Link></li>
+                            <li><Link href="/submit-claim" className={styles.navLink}>Submit Claim</Link></li>
                         </ul>
                     </nav>
 
                     {/* Desktop Actions */}
                     <div className={styles.actions}>
-                        <Link href="/advisor" className={styles.cta}>
-                            Advisor
-                        </Link>
+                        <Link href="/advisor" className={styles.cta}>Advisor</Link>
 
                         <div className={styles.langDropdown}>
                             <div className={styles.trigger} tabIndex={0}>
