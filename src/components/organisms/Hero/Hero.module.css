@@ -1,6 +1,9 @@
 .hero {
-    padding: 40px 0;
+    padding-top: 96px;
+    /* safe space below sticky navbar */
+    padding-bottom: 40px;
 }
+
 
 /* MAIN CONTAINER */
 .heroContainer {
@@ -77,11 +80,34 @@
     justify-content: center;
 }
 
+@media (max-width: 768px) {
+    .right {
+        width: 100%;
+        min-height: 260px;
+        /* 👈 THIS makes image visible */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
 .imageWrapper {
     position: relative;
     width: 420px;
     height: 420px;
 }
+
+@media (max-width: 768px) {
+    .imageWrapper {
+        position: relative;
+        width: 100%;
+        max-width: 320px;
+        height: 260px;
+        /* REQUIRED */
+    }
+}
+
 
 /* ---------------- MOBILE FIX ---------------- */
 
@@ -111,8 +137,33 @@
         max-width: 260px;
     }
 
-    .imageWrapper {
-        width: 90%;
-        height: 300px;
+    @media (max-width: 768px) {
+
+        .imageWrapper {
+            width: 100%;
+            max-width: 320px;
+            height: 260px;
+            /* REQUIRED for next/image */
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .heroContainer {
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .left {
+        order: 1;
+    }
+
+    .right {
+        order: 2;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 }

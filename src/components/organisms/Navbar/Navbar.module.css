@@ -1,26 +1,59 @@
-/* Header styling */
+/* =========================
+   HEADER
+========================= */
+/* =========================
+   MOBILE HAMBURGER
+========================= */
+.hamburger {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+
+/* =========================
+   MOBILE NAV SWITCH
+========================= */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
 .header {
     position: sticky;
     top: 0;
     z-index: 60;
     backdrop-filter: blur(6px);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9));
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.96),
+            rgba(255, 255, 255, 0.9));
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
 }
 
-/* Inner container */
+/* =========================
+   INNER WRAPPER
+========================= */
 .inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 12px 20px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
 }
 
-/* Logo */
+/* =========================
+   LOGO
+========================= */
 .logo {
     font-weight: 800;
     color: #c93b24;
@@ -32,47 +65,61 @@
     letter-spacing: 0.4px;
 }
 
-/* NAV */
+/* =========================
+   NAV
+========================= */
 .nav {
     flex: 1;
     margin-left: 144px;
 }
 
-/* nav list */
 .navList {
     list-style: none;
     margin: 0;
     padding: 0;
+
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
 }
 
-/* main nav links */
+/* =========================
+   NAV LINKS
+========================= */
 .navLink {
+    background: none;
+    border: none;
+    cursor: pointer;
+
     color: #2d2d2d;
-    text-decoration: none;
     font-weight: 600;
+    text-decoration: none;
+
     padding: 8px 6px;
-    position: relative;
-    transition: color 180ms ease;
     border-radius: 6px;
+    position: relative;
+
+    transition: color 180ms ease;
 }
 
-/* subtle underline animation via pseudo element */
+/* underline animation */
 .navLink::after {
     content: "";
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) scaleX(0);
     bottom: -6px;
-    height: 3px;
+
     width: 60%;
+    height: 3px;
+
     background: linear-gradient(90deg, #df4125, #c93b24);
     border-radius: 3px;
+
+    transform: translateX(-50%) scaleX(0);
     transform-origin: center;
-    transition: transform 220ms cubic-bezier(.2, .9, .2, 1);
     opacity: 0;
+
+    transition: transform 220ms ease, opacity 220ms ease;
 }
 
 .navLink:hover,
@@ -86,37 +133,36 @@
     opacity: 1;
 }
 
-/* Dropdown parent */
+/* =========================
+   DROPDOWN
+========================= */
 .navList li {
     position: relative;
 }
 
-/* Dropdown menu - ALWAYS in layout (no display:none) to avoid layout jumps */
 .dropdownMenu {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
     position: absolute;
     top: calc(100% + 10px);
     left: 0;
-    background: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(18, 18, 18, 0.08);
+
     min-width: 185px;
-    padding: 6px 6px;
-    z-index: 80;
+    padding: 6px;
+
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 30px rgba(18, 18, 18, 0.08);
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
     transform: translateY(6px) scale(0.98);
-    transform-origin: top left;
-    transition:
-        opacity 220ms cubic-bezier(.2, .9, .2, 1),
-        transform 220ms cubic-bezier(.2, .9, .2, 1),
-        visibility 220ms;
-    will-change: transform, opacity;
+    transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
+    z-index: 80;
 }
 
-/* Make dropdown visible on hover or keyboard focus within (accessibility) */
-/* Enable hover dropdowns ONLY on devices that support hover (desktop) */
+/* Desktop hover */
 @media (hover: hover) and (pointer: fine) {
     .dropdown:hover .dropdownMenu {
         visibility: visible;
@@ -126,7 +172,7 @@
     }
 }
 
-/* Keep keyboard accessibility */
+/* Keyboard accessibility */
 .dropdown:focus-within .dropdownMenu {
     visibility: visible;
     opacity: 1;
@@ -134,20 +180,32 @@
     transform: translateY(0) scale(1);
 }
 
+/* ✅ MOBILE TAP FIX */
+@media (hover: none) and (pointer: coarse) {
+
+    .dropdown>button:focus+.dropdownMenu,
+    .dropdown>button:active+.dropdownMenu {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+    }
+}
 
 /* Dropdown items */
 .dropdownItem {
     display: block;
     padding: 10px 28px;
-    color: #2b2b2b;
+    margin: 2px;
+
     text-decoration: none;
     font-weight: 500;
+    color: #2b2b2b;
+
     border-radius: 8px;
     transition: background 160ms ease, transform 160ms ease;
-    margin: 2px 2px;
 }
 
-/* Hover/focus states for dropdown items */
 .dropdownItem:hover,
 .dropdownItem:focus {
     background: rgba(223, 65, 37, 0.06);
@@ -155,31 +213,26 @@
     transform: translateX(4px);
 }
 
-/* small divider between groups (if needed) */
-.dropdownMenu .divider {
-    height: 1px;
-    background: rgba(0, 0, 0, 0.05);
-    margin: 8px 6px;
-    border-radius: 2px;
-}
-
-/* Actions (button + select) */
+/* =========================
+   ACTIONS
+========================= */
 .actions {
     display: flex;
-    gap: 12px;
     align-items: center;
+    gap: 12px;
 }
 
-/* CTA Button (rounded pill) */
+/* CTA */
 .cta {
     background: linear-gradient(90deg, #df4125, #c93b24);
-    border: none;
-    color: white;
+    color: #fff;
+
     padding: 8px 14px;
     border-radius: 999px;
-    cursor: pointer;
+
     font-weight: 700;
-    box-shadow: 0 6px 18px rgba(217, 62, 41, 0.12);
+    text-decoration: none;
+
     transition: transform 140ms ease, box-shadow 140ms ease;
 }
 
@@ -188,104 +241,74 @@
     box-shadow: 0 10px 30px rgba(217, 62, 41, 0.14);
 }
 
-/* ---------------------------
-   LANG / MARKET DROPDOWN
-   --------------------------- */
-
-/* container to handle hover & focus-within */
-/* LANG DROPDOWN */
+/* =========================
+   LANGUAGE DROPDOWN
+========================= */
 .langDropdown {
     position: relative;
-    display: inline-block;
 }
 
-/* Trigger button — made relative and higher z-index to avoid hover gap */
 .trigger {
     display: flex;
     align-items: center;
     gap: 6px;
+
     padding: 8px 12px;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+
     cursor: pointer;
     background: #fff;
-    transition: background 140ms ease, transform 140ms ease;
-    position: relative;
-    /* important for overlap */
-    z-index: 121;
-    /* ensure it's above other things */
-    outline: none;
 }
 
-/* Hover effect on trigger (also on focus) */
-.langDropdown:hover .trigger,
-.trigger:focus,
-.trigger:active {
-    background: rgba(217, 94, 78, 0.06);
-}
-
-/* Caret rotation */
 .caret {
     font-size: 12px;
     color: #666;
-    margin-left: 6px;
-    transition: transform 160ms ease;
 }
 
-.langDropdown:hover .caret,
-.langDropdown:focus-within .caret {
-    transform: rotate(180deg);
-}
-
-/* Dropdown menu — placed touching the trigger to remove any gap */
 .langMenu {
     position: absolute;
     right: 0;
     top: 100%;
-    /* directly under the trigger */
-    margin-top: -2px;
-    /* slight overlap so pointer never leaves active area */
+
     min-width: 140px;
     padding: 6px 0;
+
     background: #fff;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
     visibility: hidden;
     opacity: 0;
-    transform: translateY(4px) scale(0.995);
     pointer-events: none;
-    transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
+
+    transition: opacity 160ms ease, transform 160ms ease;
     z-index: 120;
-    list-style: none;
 }
 
-/* Show menu when hovering over dropdown container or when trigger focused */
 .langDropdown:hover .langMenu,
 .langDropdown:focus-within .langMenu {
     visibility: visible;
     opacity: 1;
-    transform: translateY(0) scale(1);
     pointer-events: auto;
 }
 
-/* Dropdown items */
 .langItem {
-    display: block;
-    /* full width clickable */
+    list-style: none;
 }
 
 .langLink {
     display: flex;
     align-items: center;
     gap: 8px;
+
     padding: 10px 14px;
-    /* slightly larger clickable area */
-    cursor: pointer;
     text-decoration: none;
     color: #222;
-    transition: background 120ms ease, transform 120ms ease;
+
     border-radius: 6px;
+    transition: background 120ms ease, transform 120ms ease;
 }
 
 .langLink:hover {
@@ -293,28 +316,26 @@
     transform: translateX(3px);
 }
 
-/* Flag image inside language dropdown */
 .flagIcon {
     width: 26px;
-    /* bigger & clearer */
-    height: auto;
-    /* prevent compression */
     aspect-ratio: 3 / 2;
-    /* correct flag ratio */
     object-fit: contain;
-    /* no stretching */
-    border-radius: 2px;
-    /* slight premium touch */
     display: block;
 }
 
-.langItem:hover .flagIcon {
-    transform: scale(1.05);
-    transition: transform 0.2s ease;
-}
+/* =========================
+   MOBILE WIDTH RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .nav {
+        margin-left: 0;
+    }
 
+    .navList {
+        gap: 14px;
+    }
 
-.langItem:hover .flagIcon {
-    transform: scale(1.05);
-    transition: transform 0.2s ease;
+    .navLink {
+        padding: 10px 8px;
+    }
 }
