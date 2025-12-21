@@ -1,10 +1,10 @@
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, .45);
     opacity: 0;
     pointer-events: none;
-    transition: 0.3s;
+    transition: .3s;
     z-index: 999;
 }
 
@@ -20,7 +20,7 @@
     background: #1db27c;
     padding: 20px;
     transform: translateX(-100%);
-    transition: 0.3s;
+    transition: .35s ease;
 }
 
 .show .sidebar {
@@ -30,36 +30,47 @@
 .close {
     background: none;
     border: none;
-    font-size: 24px;
-    color: white;
+    font-size: 26px;
+    color: #fff;
     margin-bottom: 20px;
 }
 
-.section button {
+.sectionBtn {
     width: 100%;
     background: none;
     border: none;
-    color: white;
+    color: #fff;
     font-size: 18px;
+    padding: 14px 0;
     display: flex;
     justify-content: space-between;
-    padding: 12px 0;
+}
+
+.active {
+    color: #ffe8c7;
 }
 
 .sub {
-    padding-left: 14px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    padding-left: 12px;
+}
+
+.open {
+    max-height: 300px;
 }
 
 .sub a {
     display: block;
-    color: white;
+    color: #fff;
     padding: 8px 0;
     font-size: 16px;
 }
 
 .link {
     display: block;
-    color: white;
+    color: #fff;
     font-size: 18px;
-    padding: 12px 0;
+    padding: 14px 0;
 }
