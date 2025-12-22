@@ -125,21 +125,24 @@ export default function Home() {
       {/* STATS SECTION */}
       <section id="statistics"><StatsSection /></section>
 
+      {/* PARTNERS SLIDER */}
+      <section id="partners"><PartnersSlider /></section>
+
       {/* EXPERTISE SECTION */}
       <section id="expertise"><ExpertiseSection /></section>
 
       {/* TRAILBLAZERS / LEADERS SECTION */}
       <section id="leaders"><TrailblazersSection /></section>
 
-      {/* TRENDING NEWS SECTION */}
+      {/* TRENDING NEWS / BLOG */}
       <section id="trending"><TrendingNewsSection /></section>
-
 
       {/* CONTACT STRIP (above footer) */}
       <ContactStrip />
 
       {/* FOOTER SECTION */}
       <FooterSection />
+
 
       {/* OTHER CONTENT (commented earlier) */}
       {/* <div className={styles.container}> ... </div> */}

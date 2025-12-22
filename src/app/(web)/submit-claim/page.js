@@ -1,11 +1,23 @@
 'use client';
 
+import { useState } from 'react';
 import styles from './SubmitClaim.module.css';
 
 export default function SubmitClaimPage() {
+    const [amount, setAmount] = useState('');
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // backend integration will be added later
+    };
+
+    // Handler to format numbers with commas
+    const handleAmountChange = (e) => {
+        const value = e.target.value.replace(/,/g, ''); // remove existing commas
+        if (!isNaN(value)) { // only allow numbers
+            const formatted = Number(value).toLocaleString('en-PK'); // format with commas
+            setAmount(formatted);
+        }
     };
 
     return (
@@ -86,9 +98,10 @@ export default function SubmitClaimPage() {
                     <label htmlFor="amount">Estimated Loss (PKR)</label>
                     <input
                         id="amount"
-                        type="number"
+                        type="text" // changed to text to allow commas
                         name="amount"
-                        autoComplete="off"
+                        value={amount}
+                        onChange={handleAmountChange}
                         placeholder="Amount in PKR"
                         required
                     />
@@ -96,13 +109,31 @@ export default function SubmitClaimPage() {
 
                 {/* Documents */}
                 <div className={styles.field}>
-                    <label>Documents Attached</label>
-                    <div className={styles.checkboxes}>
-                        <label><input type="checkbox" name="docs" /> CNIC</label>
-                        <label><input type="checkbox" name="docs" /> Policy Copy</label>
-                        <label><input type="checkbox" name="docs" /> Photos</label>
-                        <label><input type="checkbox" name="docs" /> Bills</label>
-                        <label><input type="checkbox" name="docs" /> FIR (if any)</label>
+                    <label>Attach Documents</label>
+
+                    <div className={styles.uploadField}>
+                        <label htmlFor="cnic">CNIC Copy</label>
+                        <input id="cnic" type="file" name="cnic" accept=".jpg,.jpeg,.png,.pdf" />
+                    </div>
+
+                    <div className={styles.uploadField}>
+                        <label htmlFor="policyCopy">Policy Copy</label>
+                        <input id="policyCopy" type="file" name="policyCopy" accept=".jpg,.jpeg,.png,.pdf" />
+                    </div>
+
+                    <div className={styles.uploadField}>
+                        <label htmlFor="photos">Photos</label>
+                        <input id="photos" type="file" name="photos" accept=".jpg,.jpeg,.png" multiple />
+                    </div>
+
+                    <div className={styles.uploadField}>
+                        <label htmlFor="bills">Bills / Receipts</label>
+                        <input id="bills" type="file" name="bills" accept=".jpg,.jpeg,.png,.pdf" multiple />
+                    </div>
+
+                    <div className={styles.uploadField}>
+                        <label htmlFor="fir">FIR (if any)</label>
+                        <input id="fir" type="file" name="fir" accept=".jpg,.jpeg,.png,.pdf" />
                     </div>
                 </div>
 

@@ -35,21 +35,50 @@
     margin-bottom: 20px;
 }
 
+/* =========================
+   SECTION BUTTONS
+========================= */
 .sectionBtn {
     width: 100%;
     background: none;
     border: none;
     color: #fff;
     font-size: 18px;
-    padding: 14px 0;
+    padding: 14px 12px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    transition: background 200ms ease, color 200ms ease;
 }
 
-.active {
-    color: #ffe8c7;
+.sectionBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
+/* Arrow animation */
+.sectionBtn .arrow {
+    transition: transform 200ms ease;
+}
+
+.sectionBtn.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* =========================
+   ACTIVE SECTION (WAADA STYLE)
+   Yellow background + white text
+========================= */
+.sectionBtn.active {
+    background: #f4c430;
+    /* Waada-like yellow */
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* =========================
+   SUB MENU
+========================= */
 .sub {
     max-height: 0;
     overflow: hidden;
@@ -66,11 +95,39 @@
     color: #fff;
     padding: 8px 0;
     font-size: 16px;
+    opacity: 0.9;
 }
 
+.sectionBtn.active+.sub a {
+    opacity: 1;
+}
+
+/* =========================
+   SIMPLE LINKS
+========================= */
 .link {
     display: block;
     color: #fff;
     font-size: 18px;
     padding: 14px 0;
+}
+
+/* Add this to your MobileMenu.module.css */
+
+.sidebar {
+    width: 85%;
+    max-width: 340px;
+    height: 100%;
+    background: #1db27c;
+    padding: 20px;
+    transform: translateX(-100%);
+    /* hidden by default */
+    transition: transform 0.35s ease;
+    /* smooth slide in/out */
+    position: relative;
+}
+
+.openSidebar {
+    transform: translateX(0);
+    /* slide in */
 }

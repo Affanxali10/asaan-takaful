@@ -177,3 +177,37 @@
         grid-template-columns: 1fr;
     }
 }
+
+.uploadField {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+}
+
+.uploadField label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #1e293b;
+}
+
+.uploadField input[type="file"] {
+    padding: 8px;
+    border-radius: 12px;
+    border: 1.5px solid #d1d5db;
+    background: #fcfcfc;
+    font-size: 14px;
+    color: #0f172a;
+    transition: all 0.3s ease;
+}
+
+.uploadField input[type="file"]:hover {
+    border-color: #15803d;
+    box-shadow: 0 6px 15px rgba(22, 163, 74, 0.1);
+}
+
+.uploadField input[type="file"]:focus {
+    outline: none;
+    border: 1.5px solid #16a34a;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+}
