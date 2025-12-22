@@ -10,7 +10,7 @@ export default function PartnersSlider({
         { src: 'TPL.png', alt: 'TPL', href: 'https://tplinsurance.com/' },
         { src: 'atlas.jpg', alt: 'Atlas', href: 'https://ail.atlas.pk/welcome/' },
         { src: 'IGI vitality.jpeg', alt: 'IGI', href: 'https://igilife.com.pk/' },
-        { src: 'statelife.png', alt: 'StateLife', href: 'https://statelife.com.pk/en/page/takaful' }
+        { src: 'state_life.png', alt: 'StateLife', href: 'https://statelife.com.pk/en/page/takaful' }
     ],
     speed = 8, // seconds for one full loop
 }) {
