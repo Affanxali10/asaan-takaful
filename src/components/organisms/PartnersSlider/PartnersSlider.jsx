@@ -6,7 +6,7 @@ import styles from './PartnersSlider.module.css';
 export default function PartnersSlider({
     images = [
         { src: 'salamtakaful.jpeg', alt: 'Salaam Takaful', href: 'https://www.salaamtakaful.com/' },
-        { src: 'pak-qatar.png', alt: 'Pak-Qatar', href: 'https://pqgtl.com.pk/' },
+        { src: 'pak_qatar.png', alt: 'Pak-Qatar', href: 'https://pqgtl.com.pk/' },
         { src: 'TPL.png', alt: 'TPL', href: 'https://tplinsurance.com/' },
         { src: 'atlas.jpg', alt: 'Atlas', href: 'https://ail.atlas.pk/welcome/' },
         { src: 'IGI vitality.jpeg', alt: 'IGI', href: 'https://igilife.com.pk/' },
