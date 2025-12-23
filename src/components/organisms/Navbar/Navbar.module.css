@@ -4,7 +4,7 @@
 .header {
     position: sticky;
     top: 0;
-    z-index: 60;
+    z-index: 9999;
     backdrop-filter: blur(6px);
     background: linear-gradient(180deg,
             rgba(255, 255, 255, 0.96),
@@ -337,6 +337,12 @@
         z-index: 9999;
     }
 
+    @media (max-width: 768px) {
+        .inner {
+            overflow: visible !important;
+        }
+    }
+
     .inner {
         max-width: 100%;
         overflow-x: hidden;
@@ -346,4 +352,12 @@
     body {
         overflow-x: hidden !important;
     }
+
+    @media (max-width: 768px) {
+        .langMenu {
+            z-index: 10000;
+            position: absolute;
+        }
+    }
+
 }
