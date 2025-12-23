@@ -1,13 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 import MobileMenu from '../MobileMenu/MobileMenu';
 
 export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [dropdownOpen, setDropdownOpen] = useState(null); // track which dropdown is open
+    const [dropdownOpen, setDropdownOpen] = useState(null); // desktop dropdowns
+    const [mobileLangOpen, setMobileLangOpen] = useState(false); // mobile INT
+
+    const mobileLangRef = useRef(null);
+
+    // ✅ CLOSE MOBILE INT DROPDOWN ON OUTSIDE TAP
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (
+                mobileLangRef.current &&
+                !mobileLangRef.current.contains(e.target)
+            ) {
+                setMobileLangOpen(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => document.removeEventListener('click', handleClickOutside);
+    }, []);
 
     return (
         <>
@@ -28,19 +46,22 @@ export default function Navbar() {
                             AsaanTakaful
                         </Link>
 
-                        <div className={styles.langDropdown}>
-                            <div className={styles.trigger} tabIndex={0}>
+                        {/* ===== MOBILE INT DROPDOWN ===== */}
+                        <div className={styles.langDropdown} ref={mobileLangRef}>
+                            <div
+                                className={styles.trigger}
+                                tabIndex={0}
+                                onClick={(e) => {
+                                    e.stopPropagation(); // 🔴 important
+                                    setMobileLangOpen(prev => !prev);
+                                }}
+                            >
                                 INT <span className={styles.caret}>▼</span>
                             </div>
-                            <ul
-                                className={`${styles.langMenu} ${dropdownOpen === 'lang' ? styles.active : ''}`}
-                                onMouseEnter={() => setDropdownOpen('lang')}
-                                onMouseLeave={() => {
-                                    setTimeout(() => {
-                                        setDropdownOpen(null);
-                                    }, 280);
-                                }}
 
+                            <ul
+                                className={`${styles.langMenu} ${mobileLangOpen ? styles.active : ''}`}
+                                onClick={() => setMobileLangOpen(false)}
                             >
                                 <li>
                                     <Link href="/" className={styles.langLink}>
@@ -98,14 +119,19 @@ export default function Navbar() {
                     <div className={styles.actions}>
                         <Link href="/advisor" className={styles.cta}>Advisor</Link>
 
+                        {/* ===== DESKTOP INT DROPDOWN (UNCHANGED) ===== */}
                         <div className={styles.langDropdown}>
-                            <div className={styles.trigger} tabIndex={0}>
+                            <div
+                                className={styles.trigger}
+                                tabIndex={0}
+                                onClick={() =>
+                                    setDropdownOpen(prev => (prev === 'lang' ? null : 'lang'))
+                                }
+                            >
                                 INT <span className={styles.caret}>▼</span>
                             </div>
                             <ul
                                 className={`${styles.langMenu} ${dropdownOpen === 'lang' ? styles.active : ''}`}
-                                onMouseEnter={() => setDropdownOpen('lang')}
-                                onMouseLeave={() => setDropdownOpen(null)}
                             >
                                 <li>
                                     <Link href="/" className={styles.langLink}>
