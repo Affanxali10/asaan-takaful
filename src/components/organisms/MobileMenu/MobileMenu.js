@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import styles from './MobileMenu.module.css';
 
@@ -11,28 +11,19 @@ export default function MobileMenu({ open: initialOpen, onClose }) {
         setActive(active === name ? null : name);
     };
 
-    // Reset only yellow highlight when clicking empty space inside sidebar
     const resetActive = (e) => {
-        if (e.target === e.currentTarget) {
-            setActive(null);
-        }
-    };
-
-    // Close the whole menu only via ❌ button
-    const closeMenu = () => {
-        setActive(null);
-        onClose();
+        if (e.target === e.currentTarget) setActive(null);
     };
 
     return (
-        <div className={`${styles.overlay} ${initialOpen ? styles.show : ''}`}>
+        <div
+            className={`${styles.overlay} ${initialOpen ? styles.show : ''}`}
+            onClick={onClose}
+        >
             <aside
                 className={`${styles.sidebar} ${initialOpen ? styles.openSidebar : ''}`}
-                onClick={resetActive}  // click empty space resets active option
+                onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
             >
-                {/* Close button */}
-                <button className={styles.close} onClick={closeMenu}>✕</button>
-
                 {/* Company Section */}
                 <button
                     className={`${styles.sectionBtn} ${active === 'company' ? styles.active : ''}`}

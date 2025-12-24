@@ -14,7 +14,11 @@ export default function Hero({
 
                 {/* TEXT + BUTTON */}
                 <div className={styles.left}>
-                    <h1 className={styles.title}>{title}</h1>
+                    <h1 className={styles.title} dir="rtl">
+                        کیونکہ تکافل <span className={styles.eng}>Simple</span> ہے!
+                    </h1>
+
+
 
                     <p className={styles.tagline}>
                         {subtitle}

@@ -158,6 +158,45 @@
 
 }
 
+.title {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0;
+    text-align: center;
+}
+
+.urdu {
+    direction: rtl;
+    unicode-bidi: isolate;
+    display: inline-block;
+}
+
+.eng {
+    direction: ltr;
+    unicode-bidi: isolate;
+    display: inline-block;
+}
+
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 34px;
+        /* slightly reduced = no edge cut */
+        line-height: 1.6;
+        /* Urdu-safe height */
+        padding: 10px 6px;
+        /* breathing space (TOP FIX) */
+        white-space: nowrap;
+        /* still one line */
+        overflow: visible;
+        /* prevents glyph cut */
+    }
+}
+
+
+
+
 @media (max-width: 768px) {
 
     .heroContainer {

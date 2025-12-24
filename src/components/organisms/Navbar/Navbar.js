@@ -36,10 +36,10 @@ export default function Navbar() {
                     <div className={styles.mobileHeader}>
                         <button
                             className={styles.hamburger}
-                            onClick={() => setMobileOpen(true)}
-                            aria-label="Open menu"
+                            onClick={() => setMobileOpen(prev => !prev)}
+                            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                         >
-                            ☰
+                            {mobileOpen ? '✕' : '☰'}
                         </button>
 
                         <Link href="/" className={styles.mobileLogo}>

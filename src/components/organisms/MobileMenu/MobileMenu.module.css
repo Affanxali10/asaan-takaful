@@ -1,11 +1,14 @@
+/* Overlay */
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, .45);
+    background: rgba(0, 0, 0, 0.45);
     opacity: 0;
     pointer-events: none;
-    transition: .3s;
+    transition: 0.3s;
     z-index: 999;
+    overflow: hidden;
+    /* prevent background scroll */
 }
 
 .show {
@@ -13,31 +16,35 @@
     pointer-events: auto;
 }
 
+/* Sidebar */
 .sidebar {
     width: 85%;
     max-width: 340px;
-    height: 100%;
+    height: 100vh;
+    /* full viewport height */
     background: #1db27c;
     padding: 20px;
     transform: translateX(-100%);
-    transition: .35s ease;
+    transition: transform 0.35s ease;
+    position: fixed;
+    /* fix position so it doesn't scroll */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    /* only sidebar scroll if needed */
 }
 
-.show .sidebar {
+.openSidebar {
     transform: translateX(0);
 }
 
+/* Remove cross button inside menu */
 .close {
-    background: none;
-    border: none;
-    font-size: 26px;
-    color: #fff;
-    margin-bottom: 20px;
+    display: none;
 }
 
-/* =========================
-   SECTION BUTTONS
-========================= */
+/* Section buttons */
 .sectionBtn {
     width: 100%;
     background: none;
@@ -55,7 +62,6 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Arrow animation */
 .sectionBtn .arrow {
     transition: transform 200ms ease;
 }
@@ -64,25 +70,18 @@
     transform: rotate(180deg);
 }
 
-/* =========================
-   ACTIVE SECTION (WAADA STYLE)
-   Yellow background + white text
-========================= */
 .sectionBtn.active {
     background: #f4c430;
-    /* Waada-like yellow */
-    color: #ffffff;
+    color: #fff;
     border-radius: 8px;
     font-weight: 600;
 }
 
-/* =========================
-   SUB MENU
-========================= */
+/* Sub menu */
 .sub {
     max-height: 0;
     overflow: hidden;
-    transition: max-height .3s ease;
+    transition: max-height 0.3s ease;
     padding-left: 12px;
 }
 
@@ -102,32 +101,10 @@
     opacity: 1;
 }
 
-/* =========================
-   SIMPLE LINKS
-========================= */
+/* Simple links */
 .link {
     display: block;
     color: #fff;
     font-size: 18px;
     padding: 14px 0;
-}
-
-/* Add this to your MobileMenu.module.css */
-
-.sidebar {
-    width: 85%;
-    max-width: 340px;
-    height: 100%;
-    background: #1db27c;
-    padding: 20px;
-    transform: translateX(-100%);
-    /* hidden by default */
-    transition: transform 0.35s ease;
-    /* smooth slide in/out */
-    position: relative;
-}
-
-.openSidebar {
-    transform: translateX(0);
-    /* slide in */
 }
