@@ -52,7 +52,7 @@ export default function Navbar() {
                                 className={styles.trigger}
                                 tabIndex={0}
                                 onClick={(e) => {
-                                    e.stopPropagation(); // 🔴 important
+                                    e.preventDefault();           // ✅ allow toggle
                                     setMobileLangOpen(prev => !prev);
                                 }}
                             >
