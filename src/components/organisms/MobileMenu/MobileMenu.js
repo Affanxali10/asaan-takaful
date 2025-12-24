@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './MobileMenu.module.css';
 
@@ -11,18 +11,33 @@ export default function MobileMenu({ open: initialOpen, onClose }) {
         setActive(active === name ? null : name);
     };
 
-    const resetActive = (e) => {
-        if (e.target === e.currentTarget) setActive(null);
+    // Lock scroll on body when menu is open
+    useEffect(() => {
+        if (initialOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [initialOpen]);
+
+    const handleOverlayClick = (e) => {
+        if (e.target === e.currentTarget) {
+            setActive(null); // close any open submenu
+            onClose(); // close whole sidebar
+        }
     };
 
     return (
         <div
             className={`${styles.overlay} ${initialOpen ? styles.show : ''}`}
-            onClick={onClose}
+            onClick={handleOverlayClick}
         >
             <aside
                 className={`${styles.sidebar} ${initialOpen ? styles.openSidebar : ''}`}
-                onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+                onClick={(e) => e.stopPropagation()}
             >
                 {/* Company Section */}
                 <button
