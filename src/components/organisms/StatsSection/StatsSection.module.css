@@ -1,6 +1,8 @@
 :root {
-    --brand-1: #ee3514;
-    --brand-2: #ee3514;
+    /* LOGO BRAND GREEN */
+    --brand-1: #19AB02;
+    --brand-2: #19AB02;
+
     --text-dark: #333;
     --muted: #6b6b6b;
 }
@@ -9,7 +11,7 @@
     position: relative;
     overflow: visible;
     padding: 56px 20px;
-    background: #fff;
+    background: #ffffff;
 }
 
 .radialOverlay {
@@ -19,12 +21,19 @@
     right: 0;
     top: 0;
     bottom: 0;
-    /* make overlay cover full height */
     z-index: 5;
     opacity: 1;
+
+    /* SOFT LEAF / BRAND GLOW */
     background:
-        radial-gradient(circle at 50% 20%, rgba(223, 65, 37, 0.5) 0%, rgba(201, 59, 36, 0.4) 60%, rgba(255, 255, 255, 0) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0), #fff 65%);
+        radial-gradient(circle at 50% 18%,
+            rgba(25, 171, 2, 0.28) 0%,
+            rgba(25, 171, 2, 0.18) 45%,
+            rgba(255, 255, 255, 0) 100%),
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0),
+            #ffffff 65%);
+
     transition: opacity 220ms linear;
 }
 
@@ -76,9 +85,9 @@
     font-weight: 700;
     line-height: 1;
     letter-spacing: 1px;
-    color: rgba(40, 40, 40, 0.88);
+    color: rgba(32, 32, 32, 0.9);
     margin-bottom: 8px;
-    transition: transform 180ms ease;
+    transition: transform 180ms ease, color 180ms ease;
 }
 
 .statLabel {

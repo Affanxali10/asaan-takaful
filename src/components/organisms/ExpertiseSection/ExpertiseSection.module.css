@@ -2,8 +2,15 @@
     width: 100%;
     padding: 70px 20px;
     position: relative;
-    background: radial-gradient(circle at top left, rgba(197, 46, 0, 0.377), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(248, 47, 21, 0.589), transparent 60%);
+
+    /* LIGHT LEAF / BRAND RADIAL BACKGROUND */
+    background:
+        radial-gradient(circle at top left,
+            rgba(25, 171, 2, 0.22),
+            transparent 55%),
+        radial-gradient(circle at bottom right,
+            rgba(25, 171, 2, 0.14),
+            transparent 60%);
 }
 
 .wrapper {
@@ -16,7 +23,9 @@
     font-weight: 800;
     text-align: center;
     margin-bottom: 40px;
-    color: #be291e;
+
+    /* BRAND GREEN */
+    color: #19AB02;
 }
 
 .grid {
@@ -29,20 +38,24 @@
     background: #ffffff;
     border-radius: 14px;
     padding: 20px;
+
+    /* CLEAN SOFT SHADOW */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     transition: 0.25s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 14px 32px rgba(25, 171, 2, 0.12);
 }
 
 .title {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 10px;
-    color: #093d31;
+
+    /* DEEP TRUST GREEN */
+    color: #0f3f2a;
 }
 
 .desc {
