@@ -2,17 +2,17 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Navbar.module.css';
 import MobileMenu from '../MobileMenu/MobileMenu';
 
 export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [dropdownOpen, setDropdownOpen] = useState(null); // desktop dropdowns
-    const [mobileLangOpen, setMobileLangOpen] = useState(false); // mobile INT
+    const [dropdownOpen, setDropdownOpen] = useState(null);
+    const [mobileLangOpen, setMobileLangOpen] = useState(false);
 
     const mobileLangRef = useRef(null);
 
-    // ✅ CLOSE MOBILE INT DROPDOWN ON OUTSIDE TAP
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (
@@ -42,17 +42,23 @@ export default function Navbar() {
                             {mobileOpen ? '✕' : '☰'}
                         </button>
 
+                        {/* ✅ MOBILE LOGO IMAGE */}
                         <Link href="/" className={styles.mobileLogo}>
-                            AsaanTakaful
+                            <Image
+                                src="/finalLogo.jpg"
+                                alt="Asaan Takaful Logo"
+                                width={120}
+                                height={40}
+                                priority
+                            />
                         </Link>
 
-                        {/* ===== MOBILE INT DROPDOWN ===== */}
                         <div className={styles.langDropdown} ref={mobileLangRef}>
                             <div
                                 className={styles.trigger}
                                 tabIndex={0}
                                 onClick={(e) => {
-                                    e.preventDefault();           // ✅ allow toggle
+                                    e.preventDefault();
                                     setMobileLangOpen(prev => !prev);
                                 }}
                             >
@@ -77,9 +83,15 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    {/* ================= DESKTOP NAVBAR ================= */}
+                    {/* ================= DESKTOP LOGO ================= */}
                     <Link href="/" className={styles.logo}>
-                        AsaanTakaful
+                        <Image
+                            src="/finalLogo.jpg"
+                            alt="Asaan Takaful Logo"
+                            width={160}
+                            height={50}
+                            priority
+                        />
                     </Link>
 
                     <nav className={styles.nav}>
@@ -119,7 +131,6 @@ export default function Navbar() {
                     <div className={styles.actions}>
                         <Link href="/advisor" className={styles.cta}>Advisor</Link>
 
-                        {/* ===== DESKTOP INT DROPDOWN (UNCHANGED) ===== */}
                         <div className={styles.langDropdown}>
                             <div
                                 className={styles.trigger}

@@ -6,7 +6,7 @@
 }
 
 .footer {
-    background: linear-gradient(180deg, #0fa97a 0%, #0ea36b 100%);
+    background: linear-gradient(180deg, #3bb941 0%, #3bb941 100%);
     color: white;
     padding: 48px 0 22px;
     font-family: inherit;
@@ -41,7 +41,7 @@
     width: 76px;
     height: 76px;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(126, 108, 108, 0.14);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -235,7 +235,7 @@
 }
 
 .hoverAddress:hover {
-    color: #ffd700;
+    color: #ffdb0c;
 }
 
 /* copy at bottom-left corner (below logo) */
@@ -266,4 +266,17 @@
 :global(.section-visible) {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Company logo in footer left */
+.companyLogo {
+    max-width: 100px;
+    /* expand container to give more room */
+    width: auto;
+    /* let it scale proportionally */
+    height: auto;
+    /* preserve aspect ratio */
+    display: block;
+    object-fit: contain;
+    /* ensures full logo is visible */
 }
