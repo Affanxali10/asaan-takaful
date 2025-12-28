@@ -162,16 +162,17 @@ export default function FooterSection() {
                 {/* LEFT: logo / decorative */}
                 <div className={styles.left}>
                     <div className={styles.logoWrap}>
-                        <div className={styles.badge}>
-                            <svg viewBox="0 0 100 100" className={styles.badgeSvg} aria-hidden>
-                                <path d="M50 6c14 0 26 8 26 20 0 22-26 44-26 44S24 48 24 26C24 14 36 6 50 6z" fill="#fff" />
-                            </svg>
-                        </div>
+                        {/* Company Logo instead of previous arrow design */}
+                        <img
+                            src="/finalLogo.jpg"
+                            alt="Company Logo"
+                            className={styles.companyLogo}
+                        />
                     </div>
 
                     <div className={styles.brandBlock}>
                         <div className={styles.brandName}>AsaanTakaful</div>
-                        <div className={styles.brandTag}>Simplifying Insurance</div>
+                        <div className={styles.brandTag}>Takaful Asaan Hai</div>
                         <div className={styles.copyLeft}>
                             © {new Date().getFullYear()} AsaanTakaful. All Rights Reserved.
                         </div>

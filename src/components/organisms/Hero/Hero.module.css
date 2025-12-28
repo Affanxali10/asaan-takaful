@@ -41,7 +41,7 @@
     font-size: 18px;
     line-height: 1.8;
     max-width: 520px;
-    color: #222;
+    color: #2d2d2d;
     margin: 0;
 }
 
@@ -55,23 +55,31 @@
     border-radius: 14px;
     border: none;
 
-    background: linear-gradient(135deg, #df4125, #f15a3c);
-    color: white;
+    /* BRAND GREEN GRADIENT */
+    background: linear-gradient(135deg,
+            #19AB02 0%,
+            #2FCB0A 100%);
+
+    color: #ffffff;
 
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
 
-    box-shadow: 0 8px 20px rgba(223, 65, 37, 0.25);
+    /* SOFT PREMIUM SHADOW */
+    box-shadow: 0 10px 26px rgba(25, 171, 2, 0.28);
+
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 
 @media (hover: hover) {
     .bigButton:hover {
         transform: translateY(-3px);
-        box-shadow: 0 14px 32px rgba(223, 65, 37, 0.35);
+        box-shadow: 0 16px 36px rgba(25, 171, 2, 0.35);
     }
 }
+
 
 /* RIGHT IMAGE */
 .right {
@@ -194,9 +202,6 @@
     }
 }
 
-
-
-
 @media (max-width: 768px) {
 
     .heroContainer {
@@ -213,5 +218,66 @@
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+}
+
+/* 
+.hero {
+    background:
+        radial-gradient(circle at 80% 20%,
+            rgba(25, 171, 2, 0.12),
+            transparent 60%),
+        linear-gradient(180deg,
+            #ffffff 0%,
+            rgba(25, 171, 2, 0.04) 100%);
+} */
+
+/* ================= CARD STACK (REPLACES HERO IMAGE ONLY) ================= */
+
+.cardStack {
+    position: absolute;
+    inset: 0;
+}
+
+
+/* COMMON CARD SETTINGS */
+.cardBack,
+.cardFront {
+    object-fit: contain;
+    border-radius: 18px;
+    /* prevents corner cutting */
+}
+
+/* BACK CARD (SILVER / DOWNWARD) */
+/* BACK CARD (SILVER) */
+/* BACK CARD (SILVER) */
+/* BACK CARD (SILVER) */
+/* BACK CARD (SILVER) */
+/* BACK CARD (SILVER) */
+.cardBack {
+    transform: translate(-70px, 60px) scale(0.93);
+    /* slightly left & downward */
+    z-index: 1;
+    opacity: 0.95;
+}
+
+/* FRONT CARD (GOLD) */
+.cardFront {
+    transform: translate(90px, -48px) scale(1);
+    /* slightly more right, keep upward */
+    z-index: 2;
+}
+
+/* ---------------- MOBILE REFINEMENT ---------------- */
+/* ---------------- MOBILE REFINEMENT ---------------- */
+@media (max-width: 768px) {
+    .cardBack {
+        transform: translate(-28px, 28px) scale(0.87);
+        /* slightly more left to show silver card clearly */
+    }
+
+    .cardFront {
+        transform: translate(32px, -18px) scale(0.92);
+        /* slightly more right for proper stack effect */
     }
 }
