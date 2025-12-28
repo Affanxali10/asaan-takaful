@@ -45,8 +45,15 @@
 ========================= */
 .nav {
     flex: 1;
-    margin-left: 144px;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    transform: translateX(24px);
+    /* 👈 tiny right move */
 }
+
+
+
 
 .navList {
     list-style: none;
@@ -78,7 +85,7 @@
     bottom: 0;
     width: 0%;
     height: 2px;
-    background: #c93b24;
+    background: #19AB02;
     transition: width 250ms ease;
     border-radius: 2px;
 }
@@ -88,7 +95,7 @@
 }
 
 .navLink:hover {
-    color: #c93b24;
+    color: #138102;
     transform: translateY(-2px);
 }
 
@@ -153,8 +160,8 @@
 }
 
 .dropdownItem:hover {
-    background: rgba(223, 65, 37, 0.1);
-    color: #c93b24;
+    background: rgba(25, 171, 2, 0.08);
+    color: #19AB02;
 }
 
 /* =========================
@@ -168,7 +175,7 @@
 
 /* Advisor button */
 .cta {
-    background: linear-gradient(90deg, #df4125, #c93b24);
+    background: linear-gradient(135deg, #19AB02, #138102);
     color: #fff;
     padding: 8px 14px;
     border-radius: 999px;
@@ -179,7 +186,7 @@
 
 .cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(223, 65, 37, 0.35);
+    box-shadow: 0 8px 20px rgba(25, 171, 2, 0.35);
 }
 
 /* =========================
@@ -272,9 +279,10 @@
 }
 
 .langLink:hover {
-    background: rgba(223, 65, 37, 0.1);
-    color: #c93b24;
+    background: rgba(25, 171, 2, 0.08);
+    color: #19AB02;
 }
+
 
 .flagIcon {
     width: 24px;
@@ -298,10 +306,10 @@
     border: none;
     cursor: pointer;
 
-    background: rgba(223, 65, 37, 0.12);
-    /* light red opacity */
-    color: #c93b24;
-    /* brand red */
+    background: rgba(25, 171, 2, 0.08);
+    color: #138102;
+
+
 
     line-height: 1;
 }
@@ -360,4 +368,42 @@
         }
     }
 
+}
+
+/* =========================
+   LOGO
+========================= */
+/* =========================
+   LOGO (DESKTOP)
+========================= */
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.logo img {
+    height: 62px;
+    /* ⬅ increased from 50px */
+    width: auto;
+    object-fit: contain;
+}
+
+
+/* =========================
+   MOBILE LOGO
+========================= */
+.mobileLogo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.mobileLogo img {
+    height: 46px;
+    /* ⬅ bigger & clean */
+    width: auto;
+    object-fit: contain;
 }

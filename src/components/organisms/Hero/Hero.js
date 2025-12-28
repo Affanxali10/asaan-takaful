@@ -32,14 +32,28 @@ export default function Hero({
                 {/* HERO IMAGE */}
                 <div className={styles.right}>
                     <div className={styles.imageWrapper}>
-                        <Image
-                            src="/hero.jpg"
-                            alt="Hero illustration"
-                            fill
-                            sizes="(min-width: 1024px) 40vw, 90vw"
-                            style={{ objectFit: 'contain' }}
-                            priority
-                        />
+                        <div className={styles.cardStack}>
+                            {/* BACK / SILVER CARD */}
+                            <Image
+                                src="/silverBanner.png"
+                                alt="silver Card"
+                                fill
+                                sizes="(min-width: 1024px) 40vw, 90vw"
+                                className={styles.cardBack}
+                                priority
+                            />
+
+                            {/* FRONT / GOLD CARD */}
+                            <Image
+                                src="/goldBanner.png"
+                                alt="Gold Card"
+                                fill
+                                sizes="(min-width: 1024px) 40vw, 90vw"
+                                className={styles.cardFront}
+                                priority
+                            />
+                        </div>
+
                     </div>
                 </div>
 
